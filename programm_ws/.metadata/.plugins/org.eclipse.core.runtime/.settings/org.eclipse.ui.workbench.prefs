@@ -1,3 +1,4 @@
-#Thu Mar 20 13:25:37 MSK 2014
+#Tue Mar 25 16:28:19 MSK 2014
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=org.eclipse.m2e.discovery;
 eclipse.preferences.version=1
+//org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10

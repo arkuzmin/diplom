@@ -72,3 +72,96 @@ org.eclipse.core.runtime.CoreException: No property tester contributes a propert
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
 !SUBENTRY 1 org.eclipse.core.expressions 4 201 2014-03-20 13:33:13.657
 !MESSAGE No property tester contributes a property com.google.gdt.eclipse.suite.isLaunchTarget to type class org.eclipse.core.internal.resources.File
+!SESSION 2014-03-25 16:20:48.766 -----------------------------------------------
+eclipse.buildId=M20110909-1335
+java.version=1.6.0_38
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ru_RU
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2014-03-25 16:20:53.855
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.jface 2 0 2014-03-25 16:21:11.146
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-03-25 16:21:11.146
+!MESSAGE A conflict occurred for SHIFT+DEL:
+Binding(SHIFT+DEL,
+	ParameterizedCommand(Command(org.eclipse.datatools.sqltools.result.removeAllInstances,Remove All Visible Results,
+		,
+		Category(org.eclipse.datatools.sqltools.result.category,SQL Results View,null,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(SHIFT+DEL,
+	ParameterizedCommand(Command(org.eclipse.graphiti.ui.internal.action.RemoveAction,Remove,
+		Remove selected Pictogram Elements,
+		Category(org.eclipse.graphiti.ui.Graphiti_Category,Edit,Graphiti Diagram Editor,true),
+		,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(SHIFT+DEL,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.cut,Cut,
+		Cut the selection to the clipboard,
+		Category(org.eclipse.ui.category.edit,Edit,null,true),
+		org.eclipse.ui.internal.handlers.WidgetMethodHandler@43d1068c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.dialogAndWindow,,,system)
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:21:14.001
+!MESSAGE Bad extension specification
+
+!ENTRY org.eclipse.libra.facet 4 0 2014-03-25 16:21:14.004
+!MESSAGE startup class must implement org.eclipse.ui.IStartup
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.755
+!MESSAGE Plug-in 'com.google.appengine.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.core.popupMenu.project.gaeSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.759
+!MESSAGE Plug-in 'com.google.appengine.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.core.popupMenus.deployProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.762
+!MESSAGE Plug-in 'com.google.gdt.eclipse.appsmarketplace' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gdt.eclipse.appsmarketplace.popupMenus.addMarketplaceSupportAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.765
+!MESSAGE Plug-in 'com.google.gdt.eclipse.managedapis' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gdt.eclipse.managedapis.popupMenu.project.apiImportProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.768
+!MESSAGE Plug-in 'com.google.gdt.eclipse.managedapis' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.managedapis.popupMenu.project.managedApiSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.771
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.popupMenu.project.gwtSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.774
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.actions.GWTCompileProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:23:37.777
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.actions.SpeedTracerToolbarAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.460
+!MESSAGE Plug-in 'com.google.appengine.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.core.popupMenu.project.gaeSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.467
+!MESSAGE Plug-in 'com.google.appengine.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.core.popupMenus.deployProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.470
+!MESSAGE Plug-in 'com.google.gdt.eclipse.appsmarketplace' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gdt.eclipse.appsmarketplace.popupMenus.addMarketplaceSupportAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.473
+!MESSAGE Plug-in 'com.google.gdt.eclipse.managedapis' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gdt.eclipse.managedapis.popupMenu.project.apiImportProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.476
+!MESSAGE Plug-in 'com.google.gdt.eclipse.managedapis' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.appengine.eclipse.managedapis.popupMenu.project.managedApiSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.479
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.popupMenu.project.gwtSettings
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.483
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.actions.GWTCompileProjectAction
+
+!ENTRY org.eclipse.ui 4 4 2014-03-25 16:24:37.486
+!MESSAGE Plug-in 'com.google.gwt.eclipse.core' contributed an invalid Menu Extension (Path: 'com.google.gdt.eclipse.suite.popupMenu.project' is invalid): com.google.gwt.eclipse.core.actions.SpeedTracerToolbarAction
