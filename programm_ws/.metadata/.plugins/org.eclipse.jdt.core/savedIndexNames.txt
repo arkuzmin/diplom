@@ -1,3 +1,0 @@
-INDEX VERSION 1.126+K:\github\diplom\programm_ws\.metadata\.plugins\org.eclipse.jdt.core
-4020496556.index
-801655459.index
