@@ -8,6 +8,9 @@ import org.eclipse.ui.part.ViewPart;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.FillLayout;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.widgets.Text;
 
 public class CriteriaViewPart extends ViewPart {
 
@@ -28,17 +31,12 @@ public class CriteriaViewPart extends ViewPart {
 		gl_container.marginWidth = 0;
 		container.setLayout(gl_container);
 		
-		Composite composite = new Composite(container, SWT.NONE);
-		composite.setLayout(new GridLayout(1, false));
-		GridData gd_composite = new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1);
-		gd_composite.heightHint = 70;
-		gd_composite.widthHint = 271;
-		composite.setLayoutData(gd_composite);
-		
-		Composite composite_1 = new Composite(container, SWT.NONE);
-		GridData gd_composite_1 = new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1);
-		gd_composite_1.widthHint = -16;
-		composite_1.setLayoutData(gd_composite_1);
+		Composite top = new Composite(container, SWT.NONE);
+		top.setLayout(new GridLayout(1, false));
+		GridData gd_top = new GridData(SWT.FILL, SWT.CENTER, true, true, 1, 1);
+		gd_top.heightHint = 183;
+		gd_top.widthHint = 271;
+		top.setLayoutData(gd_top);
 
 	}
 
