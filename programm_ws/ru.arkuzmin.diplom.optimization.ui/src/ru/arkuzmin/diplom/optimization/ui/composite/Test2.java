@@ -2,21 +2,21 @@ package ru.arkuzmin.diplom.optimization.ui.composite;
 
 import org.eclipse.swt.widgets.Composite;
 
-public class Test extends Composite {
+public class Test2 extends Composite {
 
 	/**
 	 * Create the composite.
 	 * @param parent
 	 * @param style
 	 */
-	public Test(Composite parent, int style) {
+	public Test2(Composite parent, int style) {
 		super(parent, style);
 
 	}
 
 	@Override
 	protected void checkSubclass() {
-		// Disable the check that prevents subclassing of SWT components        //
+		// Disable the check that prevents subclassing of SWT components
 	}
 
 }
