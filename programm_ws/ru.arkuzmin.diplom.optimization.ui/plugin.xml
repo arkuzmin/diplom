@@ -8,5 +8,10 @@
             id="ru.arkuzmin.diplom.optimizatin.ui.viewpart.CriteriaViewPart"
             name="Критерии оптимизации">
       </view>
+      <view
+            class="ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart"
+            id="ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart"
+            name="Коэффициенты относительной важности критериев">
+      </view>
    </extension>
 </plugin>

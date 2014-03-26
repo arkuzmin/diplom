@@ -5,6 +5,7 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 
 import ru.arkuzmin.diplom.optimizatin.ui.viewpart.CriteriaViewPart;
+import ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart;
 
 public class Perspective implements IPerspectiveFactory {
 
@@ -21,6 +22,8 @@ public class Perspective implements IPerspectiveFactory {
 		IFolderLayout folder = layout.createFolder("messages", IPageLayout.TOP, 0.5f, editorArea);
 		folder.addPlaceholder(CriteriaViewPart.ID + ":*");
 		folder.addView(CriteriaViewPart.ID);
+		folder.addPlaceholder(ExpertViewPart.ID + ":*");
+		folder.addView(ExpertViewPart.ID);
 		
 		layout.getViewLayout(NavigationView.ID).setCloseable(false);
 	}
