@@ -6,9 +6,9 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime;bundle-version="3.7.0"
-Export-Package: ru.arkuzmin.diplom.optimizatin.ui.viewpart,
- ru.arkuzmin.diplom.optimization.ui.composite
+Export-Package: ru.arkuzmin.diplom.optimizatin.ui.viewpart
 Bundle-ClassPath: .,
  swing2swt.jar,
- swt-grouplayout.jar
+ swt-grouplayout.jar,
+ swing2swt.jar
 

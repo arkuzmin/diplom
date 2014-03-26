@@ -11,37 +11,34 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.graphics.Point;
+import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.events.ModifyEvent;
 
 public class ExpertViewPart extends ViewPart {
 
 	public static final String ID = "ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart"; //$NON-NLS-1$
 	private Text text;
-	private Label lblNewLabel;
-	private Label lblNewLabel_1;
-	private Label lblNewLabel_2;
-	private Label lblNewLabel_3;
-	private Label lblNewLabel_4;
-	private Label lblNewLabel_5;
-	private Label lblNewLabel_6;
-	private Label lblNewLabel_7;
-	private Combo combo_1;
-	private Combo combo_2;
-	private Combo combo;
-	private Text text_1;
-	private Text text_2;
-	private Text text_3;
-	private Text text_4;
-	private Combo combo_3;
-	private Combo combo_4;
-	private Combo combo_5;
-	private Text text_5;
-	private Text text_6;
-	private Text text_7;
-	private Text text_8;
-	private Text text_9;
-	private Text text_10;
-	private ControlDecoration controlDecoration;
+	private Composite composite_2;
+	private Text GG_txt;
+	private Text MM_txt;
+	private Text MonMon_txt;
+	private Text KpdKpd_txt;
+	private Text MG_txt;
+	private Text MonG_txt;
+	private Text MonM_txt;
+	private Text KpdG_txt;
+	private Text KpdM_txt;
+	private Text KpdMon_txt;
+	private Combo GM_combo;
+	private Combo GMon_combo;
+	private Combo GKpd_combo;
+	private Combo MMon_combo;
+	private Combo MKpd_combo;
+	private Combo MonKpd_combo;
 
+	private static final String[] items = new String[] {"0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9"};
+	
 	public ExpertViewPart() {
 	}
 
@@ -71,115 +68,220 @@ public class ExpertViewPart extends ViewPart {
 		composite_1.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
 		
 		Group group = new Group(composite_1, SWT.SHADOW_ETCHED_IN);
-		group.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		GridData gd_group = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_group.heightHint = 204;
+		group.setLayoutData(gd_group);
 		group.setFont(SWTResourceManager.getFont("Segoe UI", 9, SWT.BOLD));
 		group.setText("Коэффициенты относительной важности\r\n");
-		GridLayout gl_group = new GridLayout(5, true);
+		GridLayout gl_group = new GridLayout(1, true);
 		gl_group.marginTop = 5;
 		gl_group.marginRight = 5;
 		gl_group.marginLeft = 5;
 		gl_group.marginBottom = 5;
 		group.setLayout(gl_group);
-		new Label(group, SWT.NONE);
 		
-		lblNewLabel = new Label(group, SWT.NONE);
-		lblNewLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
-		lblNewLabel.setText("Расх. газа");
+		composite_2 = new Composite(group, SWT.BORDER);
+		composite_2.setLayout(new GridLayout(5, true));
+		GridData gd_composite_2 = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		gd_composite_2.heightHint = 250;
+		gd_composite_2.widthHint = 298;
+		composite_2.setLayoutData(gd_composite_2);
 		
-		controlDecoration = new ControlDecoration(lblNewLabel, SWT.LEFT | SWT.TOP);
-		controlDecoration.setImage(SWTResourceManager.getImage(ExpertViewPart.class, "/org/eclipse/jface/fieldassist/images/contassist_ovr.gif"));
-		controlDecoration.setDescriptionText("Some description");
+		Label lblNewLabel = new Label(composite_2, SWT.NONE);
+		lblNewLabel.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
 		
-		lblNewLabel_1 = new Label(group, SWT.NONE);
-		lblNewLabel_1.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
-		lblNewLabel_1.setText("Расх. мазута");
+		Label lblNewLabel_1 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_1.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_1.setText("Газ");
 		
-		lblNewLabel_2 = new Label(group, SWT.NONE);
-		lblNewLabel_2.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
-		lblNewLabel_2.setText("Фин. затраты");
+		ControlDecoration controlDecoration = new ControlDecoration(lblNewLabel_1, SWT.LEFT | SWT.TOP);
+		controlDecoration.setDescriptionText("Величина расхода газа");
 		
-		lblNewLabel_3 = new Label(group, SWT.NONE);
-		lblNewLabel_3.setLayoutData(new GridData(SWT.CENTER, SWT.FILL, true, false, 1, 1));
-		lblNewLabel_3.setText("КПД");
+		Label lblNewLabel_2 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_2.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_2.setText("Мазут");
 		
-		lblNewLabel_4 = new Label(group, SWT.NONE);
-		lblNewLabel_4.setImage(null);
-		lblNewLabel_4.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
-		lblNewLabel_4.setText("Расх. газа");
+		ControlDecoration controlDecoration_1 = new ControlDecoration(lblNewLabel_2, SWT.LEFT | SWT.TOP);
+		controlDecoration_1.setDescriptionText("Величина расхода мазута");
 		
-		text_1 = new Text(group, SWT.BORDER);
-		text_1.setEditable(false);
-		text_1.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		Label lblNewLabel_3 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_3.setText("Финансы");
 		
-		combo_1 = new Combo(group, SWT.NONE);
-		combo_1.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		ControlDecoration controlDecoration_2 = new ControlDecoration(lblNewLabel_3, SWT.LEFT | SWT.TOP);
+		controlDecoration_2.setDescriptionText("Финансовые затраты на используемое топливо");
 		
-		combo_2 = new Combo(group, SWT.NONE);
-		combo_2.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		Label lblNewLabel_4 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_4.setText("КПД");
 		
-		combo = new Combo(group, SWT.NONE);
-		combo.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		ControlDecoration controlDecoration_3 = new ControlDecoration(lblNewLabel_4, SWT.LEFT | SWT.TOP);
+		controlDecoration_3.setDescriptionText("КПД группы котлоагрегатов");
 		
-		lblNewLabel_5 = new Label(group, SWT.NONE);
-		lblNewLabel_5.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
-		lblNewLabel_5.setText("Расх. мазута");
+		Label lblNewLabel_5 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_5.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_5.setText("Газ");
 		
-		text_5 = new Text(group, SWT.BORDER);
-		text_5.setEditable(false);
-		text_5.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		ControlDecoration controlDecoration_4 = new ControlDecoration(lblNewLabel_5, SWT.RIGHT | SWT.TOP);
+		controlDecoration_4.setDescriptionText("Величина расхода газа");
 		
-		text_2 = new Text(group, SWT.BORDER);
-		text_2.setEditable(false);
-		text_2.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		GG_txt = new Text(composite_2, SWT.BORDER);
+		GG_txt.setText("1.0");
+		GG_txt.setEnabled(false);
+		GG_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		combo_3 = new Combo(group, SWT.NONE);
-		combo_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		GM_combo = new Combo(composite_2, SWT.NONE);
+		GM_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(GM_combo, MG_txt);
+			}
+		});
+		GM_combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		combo_4 = new Combo(group, SWT.NONE);
-		combo_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		GMon_combo = new Combo(composite_2, SWT.NONE);
+		GMon_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(GMon_combo, MonG_txt);
+			}
+		});
+		GMon_combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		lblNewLabel_6 = new Label(group, SWT.NONE);
-		lblNewLabel_6.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
-		lblNewLabel_6.setText("Фин. затраты");
+		GKpd_combo = new Combo(composite_2, SWT.NONE);
+		GKpd_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(GKpd_combo, KpdG_txt);
+			}
+		});
+		GKpd_combo.setSize(new Point(0, 10));
+		GKpd_combo.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 1, 1));
 		
-		text_6 = new Text(group, SWT.BORDER);
-		text_6.setEditable(false);
-		text_6.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		Label lblNewLabel_6 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_6.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_6.setText("Мазут");
 		
-		text_7 = new Text(group, SWT.BORDER);
-		text_7.setEditable(false);
-		text_7.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		ControlDecoration controlDecoration_5 = new ControlDecoration(lblNewLabel_6, SWT.RIGHT | SWT.TOP);
+		controlDecoration_5.setDescriptionText("Величина расхода мазута");
 		
-		text_3 = new Text(group, SWT.BORDER);
-		text_3.setEditable(false);
-		text_3.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		MG_txt = new Text(composite_2, SWT.BORDER);
+		MG_txt.setEnabled(false);
+		MG_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		combo_5 = new Combo(group, SWT.NONE);
-		combo_5.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		MM_txt = new Text(composite_2, SWT.BORDER);
+		MM_txt.setText("1.0");
+		MM_txt.setEnabled(false);
+		MM_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		lblNewLabel_7 = new Label(group, SWT.NONE);
-		lblNewLabel_7.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, true, 1, 1));
-		lblNewLabel_7.setText("КПД");
+		MMon_combo = new Combo(composite_2, SWT.NONE);
+		MMon_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(MMon_combo, MonM_txt);
+			}
+		});
+		MMon_combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		text_8 = new Text(group, SWT.BORDER);
-		text_8.setEditable(false);
-		text_8.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		MKpd_combo = new Combo(composite_2, SWT.NONE);
+		MKpd_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(MKpd_combo, KpdM_txt);
+			}
+		});
+		MKpd_combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		
-		text_9 = new Text(group, SWT.BORDER);
-		text_9.setEditable(false);
-		text_9.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		Label lblNewLabel_7 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_7.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_7.setText("Финансы");
 		
-		text_10 = new Text(group, SWT.BORDER);
-		text_10.setEditable(false);
-		text_10.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		ControlDecoration controlDecoration_6 = new ControlDecoration(lblNewLabel_7, SWT.RIGHT | SWT.TOP);
+		controlDecoration_6.setDescriptionText("Финансовые затраты на используемое топливо");
 		
-		text_4 = new Text(group, SWT.BORDER);
-		text_4.setEditable(false);
-		text_4.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, false, 1, 1));
+		MonG_txt = new Text(composite_2, SWT.BORDER);
+		MonG_txt.setEnabled(false);
+		MonG_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		MonM_txt = new Text(composite_2, SWT.BORDER);
+		MonM_txt.setEnabled(false);
+		MonM_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		MonMon_txt = new Text(composite_2, SWT.BORDER);
+		MonMon_txt.setText("1.0");
+		MonMon_txt.setEnabled(false);
+		MonMon_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		MonKpd_combo = new Combo(composite_2, SWT.NONE);
+		MonKpd_combo.addModifyListener(new ModifyListener() {
+			public void modifyText(ModifyEvent arg0) {
+				selectTxt(MonKpd_combo, KpdMon_txt);
+			}
+		});
+		MonKpd_combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		Label lblNewLabel_8 = new Label(composite_2, SWT.NONE);
+		lblNewLabel_8.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, true, 1, 1));
+		lblNewLabel_8.setText("КПД");
+		
+		ControlDecoration controlDecoration_7 = new ControlDecoration(lblNewLabel_8, SWT.RIGHT | SWT.TOP);
+		controlDecoration_7.setDescriptionText("КПД группы котлоагрегатов");
+		
+		KpdG_txt = new Text(composite_2, SWT.BORDER);
+		KpdG_txt.setEnabled(false);
+		KpdG_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		KpdM_txt = new Text(composite_2, SWT.BORDER);
+		KpdM_txt.setEnabled(false);
+		KpdM_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		KpdMon_txt = new Text(composite_2, SWT.BORDER);
+		KpdMon_txt.setEnabled(false);
+		KpdMon_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		KpdKpd_txt = new Text(composite_2, SWT.BORDER);
+		KpdKpd_txt.setText("1.0");
+		KpdKpd_txt.setEnabled(false);
+		KpdKpd_txt.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
+		initCombos();
+		initTxts();
 
 	}
 
-
+	private void selectTxt(final Combo combo, final Text txt) {
+		if (combo == null || txt == null || combo.getSelectionIndex() == -1) {
+			return;
+		}
+		txt.setText(items[items.length - combo.getSelectionIndex() - 1]);	
+	}
+	
+	private void initTxts() {
+		MG_txt.setText("0.5");
+		MonG_txt.setText("0.5");
+		MonM_txt.setText("0.5");
+		KpdG_txt.setText("0.5");
+		KpdM_txt.setText("0.5");
+		KpdMon_txt.setText("0.5");
+	}
+	
+	private void initCombos() {
+		GM_combo.setItems(items);
+		GM_combo.select(4);
+		
+		GMon_combo.setItems(items);
+		GMon_combo.select(4);
+		
+		GKpd_combo.setItems(items);
+		GKpd_combo.select(4);
+		
+		MMon_combo.setItems(items);
+		MMon_combo.select(4);
+		
+		MKpd_combo.setItems(items);
+		MKpd_combo.select(4);
+		
+		MonKpd_combo.setItems(items);
+		MonKpd_combo.select(4);
+	}
+	
+	
+	
 
 	@Override
 	public void setFocus() {
