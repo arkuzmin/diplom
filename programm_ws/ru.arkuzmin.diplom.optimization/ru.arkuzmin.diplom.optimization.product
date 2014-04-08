@@ -44,6 +44,7 @@
       <plugin id="org.eclipse.ui"/>
       <plugin id="org.eclipse.ui.workbench"/>
       <plugin id="ru.arkuzmin.diplom.optimization"/>
+      <plugin id="ru.arkuzmin.diplom.optimization.math"/>
       <plugin id="ru.arkuzmin.diplom.optimization.ui"/>
    </plugins>
 
