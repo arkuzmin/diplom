@@ -5,7 +5,6 @@ runtime*
 *.class
 
 # Package Files #
-*.jar
 *.war
 *.ear
 
