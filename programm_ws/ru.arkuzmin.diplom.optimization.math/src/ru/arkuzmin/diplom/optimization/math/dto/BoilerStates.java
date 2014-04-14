@@ -6,14 +6,21 @@ package ru.arkuzmin.diplom.optimization.math.dto;
  *
  */
 public enum BoilerStates {
-	OFF(0), 
-	ON_GAS(1),
-	ON_MAZ(2);
+	UNKNOWN(-1, "Не определено"),
+	OFF(0, "Выключен"), 
+	ON_GAS(1, "Работает на газе"),
+	ON_MAZ(2, "Работает на мазуте");
 	
 	private int state;
+	private String name;
 	
-	BoilerStates(int state) {
+	BoilerStates(int state, String name) {
 		this.state = state;
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	public int getState() {
