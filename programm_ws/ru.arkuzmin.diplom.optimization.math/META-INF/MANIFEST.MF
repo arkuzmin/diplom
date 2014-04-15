@@ -4,6 +4,5 @@ Bundle-Name: Math
 Bundle-SymbolicName: ru.arkuzmin.diplom.optimization.math
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ClassPath: libs/Jama-1.0.3.jar,
- .
+Bundle-ClassPath: .
 Export-Package: ru.arkuzmin.diplom.optimization.math.regression

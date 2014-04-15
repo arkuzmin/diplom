@@ -1,4 +1,4 @@
-package ru.arkuzmin.diplom.optimization.math.tpm.impl;
+package ru.arkuzmin.diplom.optimization.math.dto;
 
 /**
  * Критерий оптимизации.
@@ -13,6 +13,12 @@ public class Criteria {
 	public Criteria(final String name, CriteriaTarget target) {
 		this.name = name;
 		this.target = target;
+		this.value = -1;
+	}
+	
+	public Criteria setValue(double value) {
+		this.value = value;
+		return this;
 	}
 	
 	public String getName() {
@@ -41,4 +47,10 @@ public class Criteria {
 		}
 		return this;
 	}
+	
+	@Override
+	public String toString() {
+		return "[" + name + " : " + value + "; (->" + target + ")]";
+	}
+	
 }

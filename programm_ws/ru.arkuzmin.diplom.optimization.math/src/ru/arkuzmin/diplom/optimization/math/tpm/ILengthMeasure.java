@@ -1,6 +1,6 @@
 package ru.arkuzmin.diplom.optimization.math.tpm;
 
-import ru.arkuzmin.diplom.optimization.math.tpm.impl.VectorCriteria;
+import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
 
 /**
  * Мера расстояния между векторными критериями.
