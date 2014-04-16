@@ -1,4 +1,4 @@
-package ru.arkuzmin.diplom.optimization.math.tpm.impl;
+package ru.arkuzmin.diplom.optimization.math.tpm;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -9,7 +9,6 @@ import java.util.TreeSet;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria.CriteriaTarget;
 import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
-import ru.arkuzmin.diplom.optimization.math.tpm.ILengthMeasure;
 
 /**
  * Выбор оптимального решения методом целевого программирования

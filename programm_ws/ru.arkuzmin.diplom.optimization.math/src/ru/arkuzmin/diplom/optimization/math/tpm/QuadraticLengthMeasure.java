@@ -1,7 +1,6 @@
-package ru.arkuzmin.diplom.optimization.math.tpm.impl;
+package ru.arkuzmin.diplom.optimization.math.tpm;
 
 import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
-import ru.arkuzmin.diplom.optimization.math.tpm.ILengthMeasure;
 
 public class QuadraticLengthMeasure implements ILengthMeasure {
 

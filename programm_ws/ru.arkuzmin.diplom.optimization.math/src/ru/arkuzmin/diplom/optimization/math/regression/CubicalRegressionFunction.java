@@ -8,13 +8,16 @@ import java.util.Map;
  * @author ArKuzmin
  *
  */
-public class CubicalRegressionFunction {
+public class CubicalRegressionFunction implements IRegressionFunction {
 
 	private static final String PARAMS_EXCEPTION = "X and Y arrays must be the same size!";
 	private static final int DEGREE = 3;
 	private PolynomialRegression regression;
 	
 	private Map<Double, Double> XY_map;
+	
+	private double[] points;
+	
 	
 	/**
 	 * Коэффициенты регрессионного полинома 3-ей степени.
@@ -34,6 +37,7 @@ public class CubicalRegressionFunction {
 			throw new IllegalArgumentException(PARAMS_EXCEPTION);
 		}
 		initXYMap(x, y);
+		this.points = x;
 		computeRegressionCoefficients(x, y);
 	}
 	
@@ -63,6 +67,7 @@ public class CubicalRegressionFunction {
 	/**
 	 * Возвращает значение полинома 3 степени.
 	 */
+	@Override
 	public double getY(double x) {
 		Double result = XY_map.get(x);
 		if (result != null) {
@@ -70,5 +75,35 @@ public class CubicalRegressionFunction {
 		}
 		
 		return x*x*x*a0_cf + x*x*a1_cf + x*a2_cf + a3_cf;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("f(x) = ")
+		  .append(a0_cf).append("(x^3)")
+		  .append(a1_cf > 0 ? "+" : "")
+		  .append(a1_cf).append("(x^2)")
+		  .append(a2_cf > 0 ? "+" : "")
+		  .append(a2_cf).append("(x)")
+		  .append(a3_cf > 0 ? "+" : "")
+		  .append(a3_cf);
+		
+		return sb.toString();
+	}
+
+	@Override
+	public double getActualY(double x) {
+		return x*x*x*a0_cf + x*x*a1_cf + x*a2_cf + a3_cf;
+	}
+
+	@Override
+	public int getPointsNum() {
+		return points.length;
+	}
+
+	@Override
+	public double getXForPoint(int point) {
+		return points[point];
 	}
 }

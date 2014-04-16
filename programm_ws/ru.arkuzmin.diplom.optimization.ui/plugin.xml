@@ -13,5 +13,10 @@
             id="ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart"
             name="Коэффициенты относительной важности критериев">
       </view>
+      <view
+            class="ru.arkuzmin.diplom.optimizatin.ui.viewpart.RegressionViewPart"
+            id="ru.arkuzmin.diplom.optimizatin.ui.viewpart.RegressionViewPart"
+            name="New ViewPart">
+      </view>
    </extension>
 </plugin>

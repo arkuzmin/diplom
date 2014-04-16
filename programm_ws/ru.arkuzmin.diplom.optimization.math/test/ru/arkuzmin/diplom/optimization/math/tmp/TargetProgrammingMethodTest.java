@@ -1,4 +1,4 @@
-package ru.arkuzmin.diplom.optimization.math.tmp.impl;
+package ru.arkuzmin.diplom.optimization.math.tmp;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -10,15 +10,12 @@ import org.junit.Test;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria.CriteriaTarget;
-import ru.arkuzmin.diplom.optimization.math.tpm.ILengthMeasure;
-import ru.arkuzmin.diplom.optimization.math.tpm.impl.QuadraticLengthMeasure;
+import ru.arkuzmin.diplom.optimization.math.tpm.TargetProgrammingMethod;
 
-public class QuadraticLengthMeasureTest extends TestCase {
-	
+public class TargetProgrammingMethodTest extends TestCase {
+
 	@Test
-	public void testLengthMeasure() {
-		ILengthMeasure lm = new QuadraticLengthMeasure();
-		
+	public void testTPM() {
 		Criteria cr1 = (new Criteria("Расход газа", CriteriaTarget.MIN)).setValue(1);
 		Criteria cr2 = (new Criteria("Расход мазута", CriteriaTarget.MIN)).setValue(2);
 		Criteria cr3 = (new Criteria("Финансовые затраты", CriteriaTarget.MIN)).setValue(3);
@@ -35,7 +32,7 @@ public class QuadraticLengthMeasureTest extends TestCase {
 		cr1 = (new Criteria("Расход газа", CriteriaTarget.MIN)).setValue(1);
 		cr2 = (new Criteria("Расход мазута", CriteriaTarget.MIN)).setValue(2);
 		cr3 = (new Criteria("Финансовые затраты", CriteriaTarget.MIN)).setValue(3);
-		cr4 = (new Criteria("КПД", CriteriaTarget.MAX)).setValue(4);
+		cr4 = (new Criteria("КПД", CriteriaTarget.MAX)).setValue(5);
 		
 		List<Criteria> list2 = new LinkedList<Criteria>();
 		list2.add(cr1);
@@ -45,10 +42,27 @@ public class QuadraticLengthMeasureTest extends TestCase {
 		
 		VectorCriteria vc2 = new VectorCriteria(list2);
 		
-		assertEquals(0.0, lm.getDistance(vc1, vc2));
+		cr1 = (new Criteria("Расход газа", CriteriaTarget.MIN)).setValue(0);
+		cr2 = (new Criteria("Расход мазута", CriteriaTarget.MIN)).setValue(0);
+		cr3 = (new Criteria("Финансовые затраты", CriteriaTarget.MIN)).setValue(0);
+		cr4 = (new Criteria("КПД", CriteriaTarget.MAX)).setValue(0);
 		
-		vc2.setValues(new double[]{0, 0, 0, 0});
+		List<Criteria> list3 = new LinkedList<Criteria>();
+		list3.add(cr1);
+		list3.add(cr2);
+		list3.add(cr3);
+		list3.add(cr4);
 		
-		assertEquals(30.0, lm.getDistance(vc1, vc2));
+		VectorCriteria vc3 = new VectorCriteria(list3);
+		
+		List<VectorCriteria> vectors = new LinkedList<VectorCriteria>();
+		vectors.add(vc1);
+		vectors.add(vc2);
+		
+		TargetProgrammingMethod tpm = new TargetProgrammingMethod(vectors, vc3);
+		
+		assertEquals(vc1, tpm.getOptVector());
+		System.out.println(tpm.getOptVector());
 	}
+	
 }

@@ -5,4 +5,8 @@ Bundle-SymbolicName: ru.arkuzmin.diplom.optimization.math
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ClassPath: .
-Export-Package: ru.arkuzmin.diplom.optimization.math.regression
+Export-Package: ru.arkuzmin.diplom.optimization.chart,
+ ru.arkuzmin.diplom.optimization.math.dto,
+ ru.arkuzmin.diplom.optimization.math.pareto,
+ ru.arkuzmin.diplom.optimization.math.regression,
+ ru.arkuzmin.diplom.optimization.math.tmp
