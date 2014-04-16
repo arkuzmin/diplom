@@ -6,9 +6,6 @@ import org.eclipse.ui.IPerspectiveFactory;
 
 import ru.arkuzmin.diplom.optimizatin.ui.viewpart.CriteriaViewPart;
 import ru.arkuzmin.diplom.optimizatin.ui.viewpart.ExpertViewPart;
-import ru.arkuzmin.diplom.optimizatin.ui.viewpart.RegressionViewPart;
-import ru.arkuzmin.diplom.optimization.chart.RegressionDataset;
-import ru.arkuzmin.diplom.optimization.math.regression.CubicalRegressionFunction;
 
 public class Perspective implements IPerspectiveFactory {
 

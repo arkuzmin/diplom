@@ -3,14 +3,14 @@ package ru.arkuzmin.diplom.optimization.chart;
 import org.jfree.data.xy.AbstractXYDataset;
 import org.jfree.data.xy.XYDataset;
 
-import ru.arkuzmin.diplom.optimization.math.regression.CubicalRegressionFunction;
+import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
 
 public class RegressionDataset extends AbstractXYDataset implements XYDataset {
 
-	private final CubicalRegressionFunction regression;
+	private final IRegressionFunction regression;
 	
 	
-	public RegressionDataset(final CubicalRegressionFunction regression) {
+	public RegressionDataset(final IRegressionFunction regression) {
 		this.regression = regression;
 	}
 	
