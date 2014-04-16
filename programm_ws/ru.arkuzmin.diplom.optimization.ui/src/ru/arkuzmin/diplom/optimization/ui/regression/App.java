@@ -1,9 +1,8 @@
 package ru.arkuzmin.diplom.optimization.ui.regression;
 
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.SWT;
-import org.jfree.data.xy.XYDataset;
 
 import ru.arkuzmin.diplom.optimization.chart.RegressionDataset;
 import ru.arkuzmin.diplom.optimization.math.regression.CubicalRegressionFunction;

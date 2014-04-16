@@ -3,3 +3,4 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Lib
 Bundle-SymbolicName: ru.arkuzmin.diplom.optimization.lib
 Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: ru.arkuzmin.diplom.optimization.lib

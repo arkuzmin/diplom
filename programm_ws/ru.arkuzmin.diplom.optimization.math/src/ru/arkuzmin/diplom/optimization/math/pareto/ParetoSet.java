@@ -15,30 +15,69 @@ public class ParetoSet {
 	private List<VectorCriteria> paretoSet = new LinkedList<VectorCriteria>();
 	
 	private int i, j;
-	private ParetoMeasure pm = new ParetoMeasure();
+	private IMeasure pm = new ParetoMeasure();
 	
 	public ParetoSet(List<VectorCriteria> set) {
 		if (set == null || set.size() < 2) {
 			throw new IllegalArgumentException("Illegal argument!");
 		}
 		this.set = set;
+		for (VectorCriteria vc : set) {
+			paretoSet.add(vc);
+		}
 	}
 	
 	public List<VectorCriteria> calculateParetoSet() {
+		step1();
 		return paretoSet;
 	}
 	
 	private void step1() {
-		for (VectorCriteria vc : set) {
-			paretoSet.add(vc);
-		}
-		i = 1;
-		j = 2;
+		i = 0;
+		j = 1;
 		step2();
 	}
 	
 	private void step2() {
-		
+		if (pm.isBetter(set.get(i), set.get(j))) {
+			step3();
+		} else {
+			step5();
+		}
 	}
 	
+	private void step3() {
+		paretoSet.remove(set.get(j));
+		step4();
+	}
+	
+	private void step4() {
+		if (j < set.size()-1) {
+			j++;
+			step2();
+		} else {
+			step7();
+		}
+	}
+	
+	private void step5() {
+		if (pm.isBetter(set.get(j), set.get(i))) {
+			step6();
+		} else {
+			step4();
+		}
+	}
+	
+	private void step6() {
+		paretoSet.remove(set.get(i));
+		step7();
+	}
+	
+	private void step7() {
+		if (i < set.size() - 2) {
+			i++;
+			j = i+1;
+			step2();
+		}
+	}
 }
