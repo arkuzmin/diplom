@@ -259,7 +259,11 @@ public class Boiler {
 	 */
 	public double getB() {
 		checkInitialized();
-		return (getQkbr() * 100000) / (getQpp() * getKPD());
+		return (getQkbr() * getKo()) / (getQpp() * getKPD());
+	}
+	
+	private double getKo() {
+		return 100000;
 	}
 	
 	// Теплопроизводительность
