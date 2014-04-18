@@ -49,7 +49,8 @@ public class App {
 		shell.setText("SWT Application");
 		shell.setLayout(new BorderLayout(0, 0));
 		
-		RegressionSplineComposite regressionSplineComposite = new RegressionSplineComposite(shell, SWT.NONE, new RegressionDataset(new CubicalRegressionFunction(new double[]{110, 130, 150, 170, 190, 210}, new double[]{172, 174, 176, 178, 180, 183})));
+		RegressionSplineComposite regressionSplineComposite = new RegressionSplineComposite(shell, SWT.NONE, new RegressionDataset(new CubicalRegressionFunction(new double[]{90, 110, 130, 150, 170}, new double[]{8.38, 7.94, 9, 7.55, 8})));
+		//RegressionComposite regressionSplineComposite = new RegressionComposite(shell, SWT.NONE, new RegressionDataset(new CubicalRegressionFunction(new double[]{110, 130, 150, 170, 190, 210}, new double[]{172, 174, 176, 178, 180, 183})));
 		regressionSplineComposite.setLayoutData(BorderLayout.CENTER);
 
 	}

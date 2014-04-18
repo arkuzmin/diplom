@@ -9,15 +9,17 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.XYPlot;
 import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
-import org.jfree.chart.renderer.xy.XYShapeRenderer;
-import org.jfree.chart.renderer.xy.XYSplineRenderer;
+import org.jfree.data.function.PowerFunction2D;
+import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.statistics.Regression;
 import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 import org.jfree.experimental.chart.swt.ChartComposite;
-import org.jfree.ui.RectangleInsets;
 
 import swing2swt.layout.BorderLayout;
 
-public class RegressionSplineComposite extends Composite {
+public class RegressionComposite  extends Composite {
 
 	private final XYDataset dataset;
 	/**
@@ -25,7 +27,7 @@ public class RegressionSplineComposite extends Composite {
 	 * @param parent
 	 * @param style
 	 */
-	public RegressionSplineComposite(Composite parent, int style, XYDataset dataset) {
+	public RegressionComposite(Composite parent, int style, XYDataset dataset) {
 		super(parent, style);
 		this.dataset = dataset;
 		setLayout(new BorderLayout(0, 0));
@@ -36,25 +38,39 @@ public class RegressionSplineComposite extends Composite {
 
 	}
 	
+	private XYDataset createSampleData1()
+	    {
+	      XYSeries localXYSeries = new XYSeries("Series 1");
+	      localXYSeries.add(2.0D, 56.270000000000003D);
+	      localXYSeries.add(3.0D, 41.32D);
+	      localXYSeries.add(4.0D, 31.449999999999999D);
+	      localXYSeries.add(5.0D, 30.050000000000001D);
+	      localXYSeries.add(6.0D, 24.690000000000001D);
+	      localXYSeries.add(7.0D, 19.780000000000001D);
+	      localXYSeries.add(8.0D, 20.940000000000001D);
+	      localXYSeries.add(9.0D, 16.73D);
+	      localXYSeries.add(10.0D, 14.210000000000001D);
+	      localXYSeries.add(11.0D, 12.44D);
+	      XYSeriesCollection localXYSeriesCollection = new XYSeriesCollection(localXYSeries);
+	      return localXYSeriesCollection;
+	 }
 	
 	private JFreeChart createChart(final String title) {  
 		  NumberAxis localNumberAxis1 = new NumberAxis("X");
 	      localNumberAxis1.setAutoRangeIncludesZero(false);
 	      NumberAxis localNumberAxis2 = new NumberAxis("Y");
 	      localNumberAxis2.setAutoRangeIncludesZero(false);
-	      XYSplineRenderer localXYSplineRenderer = new XYSplineRenderer();
-	      XYShapeRenderer xyShapeRenderer = new XYShapeRenderer();
-	      XYPlot localXYPlot = new XYPlot(dataset, localNumberAxis1, localNumberAxis2, localXYSplineRenderer);
-	     
 	      
-	      localXYPlot.setBackgroundPaint(Color.lightGray);
-	      localXYPlot.setDomainGridlinePaint(Color.white);
-	      localXYPlot.setRangeGridlinePaint(Color.white);
-	      
-	      
-	      localXYPlot.setAxisOffset(new RectangleInsets(4.0D, 4.0D, 4.0D, 4.0D));
-	      
-	      JFreeChart localJFreeChart = new JFreeChart("XYSplineRenderer", JFreeChart.DEFAULT_TITLE_FONT, localXYPlot, true);
+	      XYLineAndShapeRenderer localXYLineAndShapeRenderer1 = new XYLineAndShapeRenderer(false, true);
+	      XYPlot localXYPlot = new XYPlot(dataset, localNumberAxis1, localNumberAxis2, localXYLineAndShapeRenderer1);
+	      double[] arrayOfDouble = Regression.getPowerRegression(dataset, 0);
+	      PowerFunction2D localPowerFunction2D = new PowerFunction2D(arrayOfDouble[0], arrayOfDouble[1]);
+	     // XYDataset localXYDataset = DatasetUtilities.sampleFunction2D(localPowerFunction2D, 2.0D, 11.0D, 100, "Fitted Regression Line");
+	      XYLineAndShapeRenderer localXYLineAndShapeRenderer2 = new XYLineAndShapeRenderer(true, false);
+	      localXYLineAndShapeRenderer2.setSeriesPaint(0, Color.blue);
+	     // localXYPlot.setDataset(1, localXYDataset);
+	    //  localXYPlot.setRenderer(1, localXYLineAndShapeRenderer2);
+	      JFreeChart localJFreeChart = new JFreeChart("Power Regression", JFreeChart.DEFAULT_TITLE_FONT, localXYPlot, true);
 	      ChartUtilities.applyCurrentTheme(localJFreeChart);
 	      return localJFreeChart;
 	 }  

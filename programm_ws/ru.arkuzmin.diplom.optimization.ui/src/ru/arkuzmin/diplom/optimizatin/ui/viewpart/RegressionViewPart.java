@@ -7,6 +7,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.jfree.data.xy.XYDataset;
 
+import ru.arkuzmin.diplom.optimization.ui.regression.RegressionComposite;
 import ru.arkuzmin.diplom.optimization.ui.regression.RegressionSplineComposite;
 import swing2swt.layout.BorderLayout;
 
@@ -34,6 +35,7 @@ public class RegressionViewPart extends ViewPart {
 		container.setLayout(new BorderLayout(0, 0));
 		
 		RegressionSplineComposite regressionSpline = new RegressionSplineComposite(container, SWT.NONE, dataset);
+		//RegressionComposite regressionSpline = new RegressionComposite(container, SWT.NONE);
 		regressionSpline.setLayoutData(BorderLayout.CENTER);
 
 		createActions();

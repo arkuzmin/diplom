@@ -1,13 +1,19 @@
 package ru.arkuzmin.diplom.optimization.math.dto;
 
-import ru.arkuzmin.diplom.optimization.math.regression.CubicalRegressionFunction;
+import ru.arkuzmin.diplom.optimization.math.regression.IBoilerRegressionFunction;
+import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
 
 /** 
  * Котлоагрегат.
  * @author ArKuzmin
  *
  */
+@SuppressWarnings("unused")
 public class Boiler {
+	
+	private boolean initialized1 = false;
+	private boolean initialized2 = false;
+	
 	/** 
 	 * Текущее состояние котла.
 	 */
@@ -37,21 +43,15 @@ public class Boiler {
 	 * Регрессионные полиномы.
 	 */
 	// Потеря тепла с уходящими газами
-	private CubicalRegressionFunction q2_regression = null;
+	private IBoilerRegressionFunction q2_regression = null;
 	// Потеря тепла в окружающую среду за счет конвекции и излучения
-	private CubicalRegressionFunction q5_regression = null;
+	private IBoilerRegressionFunction q5_regression = null;
 	// Температура уходящих газов
-	private CubicalRegressionFunction tyx_regression = null;
+	private IBoilerRegressionFunction tyx_regression = null;
 	// Коэффициент избытка воздуха в уходящих газах
-	private CubicalRegressionFunction ayx_regression = null;
+	private IBoilerRegressionFunction ayx_regression = null;
 	// Коэффициент избытка воздуха в режимном сечении
-	private CubicalRegressionFunction apc_regression = null;
-	
-	private double q2;
-	private double q5;
-	private double tyx;
-	private double ayx;
-	private double apc;
+	private IBoilerRegressionFunction apc_regression = null;
 	
 	/**
 	 * Параметры - константы.
@@ -108,27 +108,51 @@ public class Boiler {
 		this.MAX_DK = MAX_DK;
 	}
 	
+	public void init(IBoilerRegressionFunction q2_regression,
+					 IBoilerRegressionFunction q5_regression,
+					 IBoilerRegressionFunction tyx_regression,
+					 IBoilerRegressionFunction ayx_regression,
+					 IBoilerRegressionFunction apc_regression) {
+		
+		this.q2_regression = q2_regression;
+		this.q5_regression = q5_regression;
+		this.tyx_regression = tyx_regression;
+		this.ayx_regression = ayx_regression;
+		this.apc_regression = apc_regression;
+		
+		this.initialized1 = true;
+	}
+	
+	private void checkInitialized() {
+		if (!(initialized1 && initialized2)) {
+			throw new IllegalStateException("The Boiler is not initialized with regressions!");
+		}
+	}
 	
 	public BoilerStates getState() {
+		checkInitialized();
 		return state;
 	}
 	public double getMIN_DK() {
+		checkInitialized();
 		return MIN_DK;
 	}
 	public double getMAX_DK() {
+		checkInitialized();
 		return MAX_DK;
 	}
 	public double getDK() {
+		checkInitialized();
 		return DK;
 	}
 
-	public double getQ3() {
+	private double getQ3() {
 		return q3;
 	}
-	public double getQ4() {
+	private double getQ4() {
 		return q4;
 	}
-	public double getQhp() {
+	private double getQhp() {
 		if (BoilerStates.ON_GAS.equals(getState())) {
 			Qhp = 8440;
 		} else if (BoilerStates.ON_MAZ.equals(getState())) {
@@ -137,7 +161,7 @@ public class Boiler {
 		return Qhp;
 	}
 	
-	public double getWp() {
+	private double getWp() {
 		if (BoilerStates.ON_GAS.equals(getState())) {
 			Wp = 0.0;
 		} else if (BoilerStates.ON_MAZ.equals(getState())) {
@@ -145,13 +169,13 @@ public class Boiler {
 		}
 		return Wp;
 	}
-	public double getCv() {
+	private double getCv() {
 		return Cv;
 	}
-	public double getV0() {
+	private double getV0() {
 		return v0;
 	}
-	public double getTkf2() {
+	private double getTkf2() {
 		if (BoilerStates.ON_GAS.equals(getState())) {
 			tkf2 = 30;
 		} else if (BoilerStates.ON_MAZ.equals(getState())) {
@@ -159,28 +183,28 @@ public class Boiler {
 		}
 		return tkf2;
 	}
-	public double getTml() {
+	private double getTml() {
 		return tml;
 	}
-	public double getD() {
+	private double getD() {
 		return d;
 	}
-	public double getI_f() {
+	private double getI_f() {
 		return i_f;
 	}
-	public double getI_h() {
+	private double getI_h() {
 		return i_h;
 	}
-	public double getTxv() {
+	private double getTxv() {
 		return txv;
 	}
-	public double getD_tdv() {
+	private double getD_tdv() {
 		return d_tdv;
 	}
-	public double getD_aht() {
+	private double getD_aht() {
 		return d_aht;
 	}
-	public double getD_ah() {
+	private double getD_ah() {
 		if (getDK() != 0) {
 			if (getDK() <= 210) {
 				d_ah = 0.1;
@@ -190,45 +214,114 @@ public class Boiler {
 		}
 		return d_ah;
 	}
-	public double getI_pv() {
+	private double getI_pv() {
 		return i_pv;
 	}
-	public double getI_nv() {
+	private double getI_nv() {
 		return i_nv;
 	}
-	public double getI_kv() {
+	private double getI_kv() {
 		return i_kv;
 	}
 
-
 	public int getNumber() {
+		checkInitialized();
 		return number;
 	}
 	public String getName() {
+		checkInitialized();
 		return name;
 	}
 
+	private double getQ2() {
+		return q2_regression.getY(getDK(), state);
+	}
 
-	public double getQ2() {
+	private double getQ5() {
+		return q5_regression.getY(getDK(), state);
+	}
+
+	private double getTyx() {
+		return tyx_regression.getY(getDK(), state);
+	}
+
+	private double getAyx() {
+		return ayx_regression.getY(getDK(), state);
+	}
+
+	private double getApc() {
+		return apc_regression.getY(getDK(), state);
+	}
+	
+	/**
+	 * Возвращает количество потребляемого данным котлом топлива при заданной конфигурации.
+	 * @return
+	 */
+	public double getB() {
+		checkInitialized();
+		return (getQkbr() * 100000) / (getQpp() * getKPD());
+	}
+	
+	// Теплопроизводительность
+	private double getQkbr() {
+		return getDK()*(getI_pv() - getI_nv()) + 0.01*getDK()*(getI_kv() - getI_nv());
+	}
+	
+	// Располагаемое тепло
+	public double getQpp() {
+		return getQhp() + getQkf1() + getQtl1() + getQf1();
+	}
+	
+	// Тепло, вносимое в котел воздухом
+	private double getQkf1() {
+		return getCv()*getV0()*getAvp1()*(getTkf2()-getTkf1());
+	}
+	
+	// Коэффициент избытка воздуха на входе в воздухоподогреватель
+	private double getAvp1() {
+		return getApc() - getD_at() + 0.85*getD_a();
+	}
+	
+	// Нормативное значение присосов воздуха в топку
+	private double getD_at() {
+		return getD_aht() * (MAX_DK / getDK());
+	}
+	
+	// Нормативное значение присосов воздуха в газовый тракт
+	private double getD_a() {
+		return getD_ah()*Math.sqrt(MAX_DK/getDK());
+	}
+	
+	// Температура холодного воздуха
+	private double getTkf1() {
+		return getTxv() + getD_tdv();
+	}
+	
+	// Тепло, вносимое в котел мазутом
+	private double getQtl1() {
+		if (BoilerStates.ON_MAZ.equals(state)) {
+			return (0.415 + 0.0006*getTml())*getTml();
+		} else {
+			return 0.0;
+		}
+	}
+	
+	// Тепло, вносимое в топку форсуночным паром
+	private double getQf1() {
+		return getD()*(getI_f() - getI_h());
+	}
+	
+	// КПД
+	public double getKPD() {
+		checkInitialized();
+		return 100 - getQ2() - getQ3() - getQ4() - getQ5();
+	}
+	
+	public void initCurrentState(double DK, BoilerStates state) {
+		this.DK = DK;
+		this.state = state;
 		
-		return q2;
-	}
-
-
-	public double getQ5() {
-		return q5;
-	}
-
-	public double getTyx() {
-		return tyx;
-	}
-
-	public double getAyx() {
-		return ayx;
-	}
-
-	public double getApc() {
-		return apc;
+		initialized2 = true;
 	}
 	
 }
