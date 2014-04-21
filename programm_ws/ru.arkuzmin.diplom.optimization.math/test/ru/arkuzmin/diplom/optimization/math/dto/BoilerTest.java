@@ -70,7 +70,7 @@ public class BoilerTest extends TestCase {
 		IBoilerRegressionFunction bapc = new BoilerRegressionFunction(apc_regression, apc_regressionm);
 		
 		b.init(bq2, bq5, btyx, bayx, bapc);
-		b.initCurrentState(183, BoilerStates.ON_GAS);
+		b.initCurrentState(219, BoilerStates.ON_GAS);
 		
 		System.out.println(b.getB());
 		System.out.println(b.getKPD());

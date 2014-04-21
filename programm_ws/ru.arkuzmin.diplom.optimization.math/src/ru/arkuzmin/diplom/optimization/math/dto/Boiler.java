@@ -263,22 +263,29 @@ public class Boiler {
 	}
 	
 	private double getKo() {
-		return 100000;
+		return 100;
+		//return 100000;
 	}
 	
 	// Теплопроизводительность
 	private double getQkbr() {
-		return getDK()*(getI_pv() - getI_nv()) + 0.01*getDK()*(getI_kv() - getI_nv());
+		double result = getDK()*(getI_pv() - getI_nv()) + 0.01*getDK()*(getI_kv() - getI_nv());
+		System.out.println("Qkbr: " + result);
+		return result;
 	}
 	
 	// Располагаемое тепло
 	public double getQpp() {
-		return getQhp() + getQkf1() + getQtl1() + getQf1();
+		double result = getQhp() + getQkf1() + getQtl1() + getQf1();
+		System.out.println("Qpp: " + result);
+		return result;
 	}
 	
 	// Тепло, вносимое в котел воздухом
 	private double getQkf1() {
-		return getCv()*getV0()*getAvp1()*(getTkf2()-getTkf1());
+		double result = getCv()*getV0()*getAvp1()*(getTkf2()-getTkf1());
+		System.out.println("Qkf1: " + result);
+		return result;
 	}
 	
 	// Коэффициент избытка воздуха на входе в воздухоподогреватель
@@ -303,16 +310,21 @@ public class Boiler {
 	
 	// Тепло, вносимое в котел мазутом
 	private double getQtl1() {
+		double result;
 		if (BoilerStates.ON_MAZ.equals(state)) {
-			return (0.415 + 0.0006*getTml())*getTml();
+			result =  (0.415 + 0.0006*getTml())*getTml();
 		} else {
-			return 0.0;
+			result =  0.0;
 		}
+		System.out.println("Qtl1: " + result);
+		return result;
 	}
 	
 	// Тепло, вносимое в топку форсуночным паром
 	private double getQf1() {
-		return getD()*(getI_f() - getI_h());
+		double result =  getD()*(getI_f() - getI_h());
+		System.out.println("Qf1: " + result);
+		return result;
 	}
 	
 	// КПД
