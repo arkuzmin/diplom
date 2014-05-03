@@ -41,7 +41,6 @@ public class TargetProgrammingMethod {
 		}
 	}
 	
-	
 	/**
 	 * Возвращает оптимальный векторый критерий.
 	 * @return

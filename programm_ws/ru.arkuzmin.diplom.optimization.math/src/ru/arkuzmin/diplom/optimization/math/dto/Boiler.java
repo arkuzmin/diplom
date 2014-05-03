@@ -268,7 +268,7 @@ public class Boiler {
 	}
 	
 	// Теплопроизводительность
-	private double getQkbr() {
+	public double getQkbr() {
 		double result = getDK()*(getI_pv() - getI_nv()) + 0.01*getDK()*(getI_kv() - getI_nv());
 		System.out.println("Qkbr: " + result);
 		return result;

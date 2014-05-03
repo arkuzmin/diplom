@@ -1,5 +1,6 @@
 package ru.arkuzmin.diplom.optimization.mco;
 
+import ru.arkuzmin.diplom.optimization.math.dto.BoilerStation;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 
 /**
@@ -14,5 +15,5 @@ public interface ICriteriaTargetFunction {
 	 * @param x
 	 * @return
 	 */
-	public Criteria getValue(double... x);
+	public Criteria getValue(BoilerStation station);
 }
