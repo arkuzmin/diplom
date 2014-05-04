@@ -16,7 +16,6 @@ public class Boiler {
 	private static final Logger logger = Logger.getLogger(Boiler.class);
 	
 	private boolean initialized1 = false;
-	private boolean initialized2 = false;
 	
 	/** 
 	 * Текущее состояние котла.
@@ -127,17 +126,12 @@ public class Boiler {
 		this.initialized1 = true;
 	}
 	
-	private boolean checkInitialized2() {
-		return initialized2;
-	}
-	
-	
 	private boolean checkInitialized1() {
 		return initialized1;
 	}
 	
 	private void checkInitialized() {
-		if (!(checkInitialized1() && checkInitialized2())) {
+		if (!(checkInitialized1())) {
 			throw new IllegalStateException("The Boiler is not initialized with regressions!");
 		}
 	}
@@ -345,11 +339,20 @@ public class Boiler {
 	public Boiler initCurrentState(double DK, BoilerStates state) {
 		this.DK = DK;
 		this.state = state;
-		
-		initialized2 = true;
-		
+	
 		return this;
 	}
+	
+	public Boiler setDK(double DK) {
+		this.DK = DK;
+		return this;
+	}
+	
+	public Boiler setState(BoilerStates state) {
+		this.state = state;
+		return this;
+	}
+	
 	
 	@Override
 	public String toString() {
@@ -368,10 +371,10 @@ public class Boiler {
 			
 		} 
 		
-		if (checkInitialized2()) {
-			sb.append("Состояние: ").append(state).append("\n")
-			  .append("Текущая нагрузка: ").append(DK);
-		}
+		
+		sb.append("Состояние: ").append(state).append("\n")
+		  .append("Текущая нагрузка: ").append(DK);
+		
 		return sb.toString();
 	}
 }

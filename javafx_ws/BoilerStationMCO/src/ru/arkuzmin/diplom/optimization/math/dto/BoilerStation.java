@@ -18,4 +18,14 @@ public class BoilerStation {
 	public List<Boiler> getBoilers() {
 		return boilers;
 	}
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		for (Boiler b : boilers) {
+			sb.append(b)
+			  .append("\n-----------------\n");
+		}
+		return sb.toString();
+	}
 }
