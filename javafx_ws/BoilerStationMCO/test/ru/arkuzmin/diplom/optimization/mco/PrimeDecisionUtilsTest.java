@@ -35,13 +35,13 @@ public class PrimeDecisionUtilsTest extends TestCase {
 		boilers.add(b6);
 		
 		BoilerStation station = new BoilerStation(boilers);
-		PrimeDecisionUtils.getPrimeDecision(station, 244);
+		DecisionUtils.getPrimeDecision(station, 244);
 		
 		logger.debug(station);
 	
-		assertTrue(PrimeDecisionUtils.checkConfiguration(station, 244));
-		assertFalse(PrimeDecisionUtils.checkConfiguration(station, 190));
-		assertFalse(PrimeDecisionUtils.checkConfiguration(station, 600));
+		assertTrue(DecisionUtils.checkConfiguration(station, 244));
+		assertFalse(DecisionUtils.checkConfiguration(station, 190));
+		assertFalse(DecisionUtils.checkConfiguration(station, 600));
 	}
 	
 }

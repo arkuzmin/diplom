@@ -12,7 +12,7 @@ import ru.arkuzmin.diplom.optimization.math.dto.BoilerStation;
  * @author ArKuzmin
  *
  */
-public class PrimeDecisionUtils {
+public class DecisionUtils {
 
 	/**
 	 * Выполняет проверку допустимости заданной конфигурации.

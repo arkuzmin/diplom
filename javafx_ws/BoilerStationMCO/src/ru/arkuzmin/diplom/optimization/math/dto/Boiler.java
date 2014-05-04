@@ -359,7 +359,17 @@ public class Boiler {
 		StringBuilder sb = new StringBuilder("");
 		sb.append("<").append(number).append(">")
 		  .append(": ").append(name).append("-")
-		  .append("[").append(MIN_DK).append(";").append(MAX_DK).append("]");
+		  .append("[").append(MIN_DK).append(";").append(MAX_DK).append("]\n")
+		  .append("Состояние: ").append(state).append("\n")
+		  .append("Текущая нагрузка: ").append(DK);
+		return sb.toString();
+	}
+	
+	public String deepToString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("<").append(number).append(">")
+		  .append(": ").append(name).append("-")
+		  .append("[").append(MIN_DK).append(";").append(MAX_DK).append("]\n");
 		
 		if (checkInitialized1()) {
 			sb.append("\n")
