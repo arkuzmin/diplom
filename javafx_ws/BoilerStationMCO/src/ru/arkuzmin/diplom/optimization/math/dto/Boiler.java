@@ -1,5 +1,7 @@
 package ru.arkuzmin.diplom.optimization.math.dto;
 
+import org.apache.log4j.Logger;
+
 import ru.arkuzmin.diplom.optimization.math.regression.IBoilerRegressionFunction;
 import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
 
@@ -10,6 +12,8 @@ import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
  */
 @SuppressWarnings("unused")
 public class Boiler {
+	
+	private static final Logger logger = Logger.getLogger(Boiler.class);
 	
 	private boolean initialized1 = false;
 	private boolean initialized2 = false;
@@ -275,21 +279,21 @@ public class Boiler {
 	// Теплопроизводительность
 	public double getQkbr() {
 		double result = getDK()*(getI_pv() - getI_nv()) + 0.01*getDK()*(getI_kv() - getI_nv());
-		System.out.println("Qkbr: " + result);
+		logger.trace("Qkbr: " + result);
 		return result;
 	}
 	
 	// Располагаемое тепло
 	public double getQpp() {
 		double result = getQhp() + getQkf1() + getQtl1() + getQf1();
-		System.out.println("Qpp: " + result);
+		logger.trace("Qpp: " + result);
 		return result;
 	}
 	
 	// Тепло, вносимое в котел воздухом
 	private double getQkf1() {
 		double result = getCv()*getV0()*getAvp1()*(getTkf2()-getTkf1());
-		System.out.println("Qkf1: " + result);
+		logger.trace("Qkf1: " + result);
 		return result;
 	}
 	
@@ -321,14 +325,14 @@ public class Boiler {
 		} else {
 			result =  0.0;
 		}
-		System.out.println("Qtl1: " + result);
+		logger.trace("Qtl1: " + result);
 		return result;
 	}
 	
 	// Тепло, вносимое в топку форсуночным паром
 	private double getQf1() {
 		double result =  getD()*(getI_f() - getI_h());
-		System.out.println("Qf1: " + result);
+		logger.trace("Qf1: " + result);
 		return result;
 	}
 	

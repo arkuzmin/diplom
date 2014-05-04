@@ -5,22 +5,26 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import ru.arkuzmin.diplom.optimization.math.dto.Boiler;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerStates;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerStation;
+import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
 
 public class CriteriaTargetFunctionTest extends TestCase {
-
+	
+	private static final Logger logger = Logger.getLogger(CriteriaTargetFunctionTest.class);
+	
 	@Test
 	public void testCriteria() {
-		Boiler b1 = new Boiler(1, "K1", 90, 170).initCurrentState(100, BoilerStates.ON_GAS);
-		Boiler b2 = new Boiler(2, "K2", 90, 170).initCurrentState(95, BoilerStates.ON_GAS);
-		Boiler b3 = new Boiler(3, "K3", 90, 170).initCurrentState(90, BoilerStates.OFF);
-		Boiler b4 = new Boiler(4, "K4", 130, 230);
-		Boiler b5 = new Boiler(5, "K5", 130, 230);
-		Boiler b6 = new Boiler(6, "K6", 130, 230);
+		Boiler b1 = BoilerWorkMaps.getB1().initCurrentState(100, BoilerStates.ON_GAS);
+		Boiler b2 = BoilerWorkMaps.getB2().initCurrentState(95, BoilerStates.OFF);
+		Boiler b3 = BoilerWorkMaps.getB3().initCurrentState(90, BoilerStates.OFF);
+		Boiler b4 = BoilerWorkMaps.getB4().initCurrentState(230, BoilerStates.OFF);
+		Boiler b5 = BoilerWorkMaps.getB5().initCurrentState(225, BoilerStates.OFF);
+		Boiler b6 = BoilerWorkMaps.getB6().initCurrentState(230, BoilerStates.OFF);
 		
 		List<Boiler> boilers = new LinkedList<Boiler>();
 		boilers.add(b1);
@@ -33,15 +37,15 @@ public class CriteriaTargetFunctionTest extends TestCase {
 		BoilerStation station = new BoilerStation(boilers);
 		
 		ICriteriaTargetFunction fun = new GasConsumptionTargetFunction();
-		System.out.println("GAS: " + fun.getValue(station));
+		logger.debug("Расход газа: " + fun.getValue(station));
 		
 		fun = new MazConsumptionTargetFunction();
-		System.out.println("MAZ: " + fun.getValue(station));
+		logger.debug("Расход мазута: " + fun.getValue(station));
 		
 		fun = new MoneyConsumptionTargetFunction(1235, 3999);
-		System.out.println("MON: " + fun.getValue(station));
+		logger.debug("Фин. затраты: " + fun.getValue(station));
 		
 		fun = new KPDTargetFunction();
-		System.out.println("KPD: " + fun.getValue(station));
+		logger.debug("КПД станции: " + fun.getValue(station));
 	}
 }

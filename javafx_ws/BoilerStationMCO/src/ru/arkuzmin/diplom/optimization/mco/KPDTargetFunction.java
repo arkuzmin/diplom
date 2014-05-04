@@ -4,6 +4,7 @@ import java.util.List;
 
 import ru.arkuzmin.diplom.optimization.common.Globals;
 import ru.arkuzmin.diplom.optimization.math.dto.Boiler;
+import ru.arkuzmin.diplom.optimization.math.dto.BoilerStates;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerStation;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria.CriteriaTarget;
@@ -27,8 +28,10 @@ public class KPDTargetFunction implements ICriteriaTargetFunction {
 		
 		List<Boiler> boilers = station.getBoilers();
 		for (Boiler b : boilers) {
-			num += b.getKPD() * b.getQkbr();
-			den += b.getQkbr();
+			if (!BoilerStates.OFF.equals(b.getState())) {
+				num += b.getKPD() * b.getQkbr();
+				den += b.getQkbr();
+			}
 		}
 		
 		double crValue = num / den;
