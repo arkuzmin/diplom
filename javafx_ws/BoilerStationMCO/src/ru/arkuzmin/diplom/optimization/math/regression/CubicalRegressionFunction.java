@@ -77,17 +77,26 @@ public class CubicalRegressionFunction implements IRegressionFunction {
 		return x*x*x*a0_cf + x*x*a1_cf + x*a2_cf + a3_cf;
 	}
 	
+	private String koeffToString(double koeff) {
+		String str = String.valueOf(koeff);
+		int pos = str.indexOf(".");
+		pos = pos > 0 ? pos : 0;
+		int ind = pos + 4 > str.length() ? str.length() : pos + 4;
+		String result = str.substring(0, ind);
+		return result;
+	}
+	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");
 		sb.append("f(x) = ")
-		  .append(a0_cf).append("(x^3)")
+		  .append(koeffToString(a0_cf)).append("(x^3)")
 		  .append(a1_cf >= 0 ? "+" : "")
-		  .append(a1_cf).append("(x^2)")
+		  .append(koeffToString(a1_cf)).append("(x^2)")
 		  .append(a2_cf >= 0 ? "+" : "")
-		  .append(a2_cf).append("(x)")
+		  .append(koeffToString(a2_cf)).append("(x)")
 		  .append(a3_cf >= 0 ? "+" : "")
-		  .append(a3_cf);
+		  .append(koeffToString(a3_cf));
 		
 		return sb.toString();
 	}
