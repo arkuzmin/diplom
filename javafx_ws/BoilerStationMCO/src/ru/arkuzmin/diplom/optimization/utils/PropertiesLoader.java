@@ -4,7 +4,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
 public class PropertiesLoader {
+	
+	private static final Logger logger = Logger.getLogger(PropertiesLoader.class);
 	
 	private static final String PROP_BCMAP_FNAME = "props/bcmap.properties";
 	
@@ -16,13 +20,13 @@ public class PropertiesLoader {
 			fis = new FileInputStream(PROP_BCMAP_FNAME);
 			PROP_BCMAP.load(fis);
 		} catch (IOException e) {
-			e.printStackTrace();
+			logger.error(e);
 		} finally {
 			if (fis != null) {
 				try {
 					fis.close();
 				} catch (IOException e) {
-					e.printStackTrace();
+					logger.error(e);
 				}
 			}
 		}
