@@ -123,8 +123,17 @@ public class Boiler {
 		this.initialized1 = true;
 	}
 	
+	private boolean checkInitialized2() {
+		return initialized2;
+	}
+	
+	
+	private boolean checkInitialized1() {
+		return initialized1;
+	}
+	
 	private void checkInitialized() {
-		if (!(initialized1 && initialized2)) {
+		if (!(checkInitialized1() && checkInitialized2())) {
 			throw new IllegalStateException("The Boiler is not initialized with regressions!");
 		}
 	}
@@ -134,11 +143,9 @@ public class Boiler {
 		return state;
 	}
 	public double getMIN_DK() {
-		checkInitialized();
 		return MIN_DK;
 	}
 	public double getMAX_DK() {
-		checkInitialized();
 		return MAX_DK;
 	}
 	public double getDK() {
@@ -225,11 +232,9 @@ public class Boiler {
 	}
 
 	public int getNumber() {
-		checkInitialized();
 		return number;
 	}
 	public String getName() {
-		checkInitialized();
 		return name;
 	}
 
@@ -342,4 +347,27 @@ public class Boiler {
 		return this;
 	}
 	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("<").append(number).append(">")
+		  .append(": ").append(name).append("-")
+		  .append("[").append(MIN_DK).append(";").append(MAX_DK).append("]");
+		
+		if (checkInitialized1()) {
+			sb.append("\n")
+			  .append("q2: ").append(q2_regression).append("\n")
+			  .append("q5: ").append(q5_regression).append("\n")
+			  .append("tyx: ").append(tyx_regression).append("\n")
+			  .append("ayx: ").append(ayx_regression).append("\n")
+			  .append("apc: ").append(apc_regression).append("\n");
+			
+		} 
+		
+		if (checkInitialized2()) {
+			sb.append("Состояние: ").append(state).append("\n")
+			  .append("Текущая нагрузка: ").append(DK);
+		}
+		return sb.toString();
+	}
 }

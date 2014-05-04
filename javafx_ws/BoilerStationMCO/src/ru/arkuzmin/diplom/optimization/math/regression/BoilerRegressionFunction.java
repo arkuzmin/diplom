@@ -22,4 +22,12 @@ public class BoilerRegressionFunction implements IBoilerRegressionFunction {
 		return 0.0;
 	}
 
+	@Override 
+	public String toString() {
+		StringBuilder sb = new StringBuilder("");
+		sb.append("(Газ): ").append(gas).append(" ")
+		  .append("(Мазут): ").append(maz);
+		
+		return sb.toString();
+	}
 }

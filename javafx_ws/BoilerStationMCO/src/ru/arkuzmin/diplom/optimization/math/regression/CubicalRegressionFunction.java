@@ -82,11 +82,11 @@ public class CubicalRegressionFunction implements IRegressionFunction {
 		StringBuilder sb = new StringBuilder("");
 		sb.append("f(x) = ")
 		  .append(a0_cf).append("(x^3)")
-		  .append(a1_cf > 0 ? "+" : "")
+		  .append(a1_cf >= 0 ? "+" : "")
 		  .append(a1_cf).append("(x^2)")
-		  .append(a2_cf > 0 ? "+" : "")
+		  .append(a2_cf >= 0 ? "+" : "")
 		  .append(a2_cf).append("(x)")
-		  .append(a3_cf > 0 ? "+" : "")
+		  .append(a3_cf >= 0 ? "+" : "")
 		  .append(a3_cf);
 		
 		return sb.toString();

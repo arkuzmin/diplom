@@ -6,6 +6,11 @@ import java.util.Properties;
 
 import org.apache.log4j.Logger;
 
+/**
+ * Вспомогательный класс для подгрузки параметров из внешних файлов.
+ * @author ArKuzmin
+ *
+ */
 public class PropertiesLoader {
 	
 	private static final Logger logger = Logger.getLogger(PropertiesLoader.class);
@@ -30,6 +35,14 @@ public class PropertiesLoader {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Возвращает режимные карты котлов.
+	 * @return
+	 */
+	public static Properties getBoilerCondMapProperties() {
+		return PROP_BCMAP;
 	}
 	
 	public static void main(String[] args) {

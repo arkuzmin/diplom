@@ -4,11 +4,16 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
+import org.apache.log4j.Logger;
+
+import ru.arkuzmin.diplom.optimization.common.Globals;
 import ru.arkuzmin.diplom.optimization.math.regression.BoilerRegressionFunction;
 import ru.arkuzmin.diplom.optimization.math.regression.CubicalRegressionFunction;
 import ru.arkuzmin.diplom.optimization.math.regression.IBoilerRegressionFunction;
 import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
+import ru.arkuzmin.diplom.optimization.utils.PropertiesLoader;
 
 /**
  * Режимные карты котлов.
@@ -17,35 +22,27 @@ import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
  */
 public class BoilerWorkMaps {
 	
-	/**
-	 * Имена котлов.
-	 */
-	private static final String K1_NAME = "Котел К-1";
-	private static final String K2_NAME = "Котел К-2";
-	private static final String K3_NAME = "Котел К-3";
-	private static final String K4_NAME = "Котел К-4";
-	private static final String K5_NAME = "Котел К-5";
-	private static final String K6_NAME = "Котел К-6";
-	
+	private static final Logger logger = Logger.getLogger(BoilerWorkMaps.class);
+		
 	/**
 	 * Ключи для режимной карты.
 	 */
-	private static final String KEY_G_X = "GX";
-	private static final String KEY_M_X = "MX";
-	private static final String KEY_Q2_G_Y = "Q2GY";
-	private static final String KEY_Q2_M_Y = "Q2MY";
+	public static final String KEY_G_X = "GX";
+	public static final String KEY_M_X = "MX";
+	public static final String KEY_Q2_G_Y = "Q2GY";
+	public static final String KEY_Q2_M_Y = "Q2MY";
 	
-	private static final String KEY_Q5_G_Y = "Q5GY";
-	private static final String KEY_Q5_M_Y = "Q5MY";
+	public static final String KEY_Q5_G_Y = "Q5GY";
+	public static final String KEY_Q5_M_Y = "Q5MY";
 	
-	private static final String KEY_TYX_G_Y = "TYXGY";
-	private static final String KEY_TYX_M_Y = "TYXMY";
+	public static final String KEY_TYX_G_Y = "TYXGY";
+	public static final String KEY_TYX_M_Y = "TYXMY";
 	
-	private static final String KEY_AYX_G_Y = "AYXGY";
-	private static final String KEY_AYX_M_Y = "AYXMY";
+	public static final String KEY_AYX_G_Y = "AYXGY";
+	public static final String KEY_AYX_M_Y = "AYXMY";
 	
-	private static final String KEY_APC_G_Y = "APCGY";
-	private static final String KEY_APC_M_Y = "APCMY";
+	public static final String KEY_APC_G_Y = "APCGY";
+	public static final String KEY_APC_M_Y = "APCMY";
 	
 	/**
 	 * Режимная карта.
@@ -54,6 +51,7 @@ public class BoilerWorkMaps {
 	
 	static {
 		rMap = new HashMap<String, double[]>();
+		initDefaultRegressions();
 	}
 	
 	private static String getKey(int boilerNum, String rKey) {
@@ -64,16 +62,61 @@ public class BoilerWorkMaps {
 		
 		return sb.toString();
 	}
+
+	private static double[] toDoubleArr(String[] arr) {
+		if (arr == null) {
+			return null;
+		}
+		
+		try {
+			double[] result = new double[arr.length];
+			for (int i = 0; i < arr.length; i++) {
+				result[i] = Double.parseDouble(arr[i]);
+			}
+			
+			return result;
+		} catch (NumberFormatException e) {
+			logger.error(e);
+			return null;
+		}
+	
+	}
 	
 	/**
 	 * Начальная инициализация регрессионных зависимостей.
 	 */
 	private static void initDefaultRegressions() {
-		// init K1
-		rMap.put(getKey(1, KEY_G_X), new double[] {90, 110, 130, 150, 170});
-		rMap.put(getKey(1, KEY_Q2_G_Y), new double[] {6.08, 6.05, 6.1, 6.1, 6.15});
-		rMap.put(getKey(1, KEY_G_X), new double[] {90, 110, 130, 150, 170});
-		rMap.put(getKey(1, KEY_Q5_G_Y), new double[] {});
+		Properties bProps = PropertiesLoader.getBoilerCondMapProperties();
+		
+		for (int i = 1; i <= Globals.BOILERS_NUM; i++) {
+			String[] bgx = bProps.getProperty(getKey(i, KEY_G_X)).split(",");
+			String[] bgq2 = bProps.getProperty(getKey(i, KEY_Q2_G_Y)).split(",");
+			String[] bgq5 = bProps.getProperty(getKey(i, KEY_Q5_G_Y)).split(",");
+			String[] bgtyx = bProps.getProperty(getKey(i, KEY_TYX_G_Y)).split(",");
+			String[] bgayx = bProps.getProperty(getKey(i, KEY_AYX_G_Y)).split(",");
+			String[] bgapc = bProps.getProperty(getKey(i, KEY_APC_G_Y)).split(",");
+			
+			String[] bmx = bProps.getProperty(getKey(i, KEY_M_X)).split(",");
+			String[] bmq2 = bProps.getProperty(getKey(i, KEY_Q2_M_Y)).split(",");
+			String[] bmq5 = bProps.getProperty(getKey(i, KEY_Q5_M_Y)).split(",");
+			String[] bmtyx = bProps.getProperty(getKey(i, KEY_TYX_M_Y)).split(",");
+			String[] bmayx = bProps.getProperty(getKey(i, KEY_AYX_M_Y)).split(",");
+			String[] bmapc = bProps.getProperty(getKey(i, KEY_APC_M_Y)).split(",");
+			
+			rMap.put(getKey(i, KEY_G_X), toDoubleArr(bgx));
+			rMap.put(getKey(i, KEY_Q2_G_Y), toDoubleArr(bgq2));
+			rMap.put(getKey(i, KEY_Q5_G_Y), toDoubleArr(bgq5));
+			rMap.put(getKey(i, KEY_TYX_G_Y), toDoubleArr(bgtyx));
+			rMap.put(getKey(i, KEY_AYX_G_Y), toDoubleArr(bgayx));
+			rMap.put(getKey(i, KEY_APC_G_Y), toDoubleArr(bgapc));
+			
+			rMap.put(getKey(i, KEY_M_X), toDoubleArr(bmx));
+			rMap.put(getKey(i, KEY_Q2_M_Y), toDoubleArr(bmq2));
+			rMap.put(getKey(i, KEY_Q5_M_Y), toDoubleArr(bmq5));
+			rMap.put(getKey(i, KEY_TYX_M_Y), toDoubleArr(bmtyx));
+			rMap.put(getKey(i, KEY_AYX_M_Y), toDoubleArr(bmayx));
+			rMap.put(getKey(i, KEY_APC_M_Y), toDoubleArr(bmapc));
+		}
 	}
 	
 	
@@ -133,7 +176,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB1() {
-		Boiler b = new Boiler(1, K1_NAME, 90, 170);
+		Boiler b = new Boiler(1, Globals.K1_NAME, 90, 170);
 		initBoiler(b);
 		
 		return b;
@@ -144,7 +187,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB2() {
-		Boiler b = new Boiler(2, K2_NAME, 90, 170);
+		Boiler b = new Boiler(2, Globals.K2_NAME, 90, 170);
 		initBoiler(b);
 		
 		return b;
@@ -155,7 +198,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB3() {
-		Boiler b = new Boiler(3, K3_NAME, 90, 170);
+		Boiler b = new Boiler(3, Globals.K3_NAME, 90, 170);
 		initBoiler(b);
 		
 		return b;
@@ -166,7 +209,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB4() {
-		Boiler b = new Boiler(4, K4_NAME, 130, 230);
+		Boiler b = new Boiler(4, Globals.K4_NAME, 130, 230);
 		initBoiler(b);
 		
 		return b;
@@ -177,7 +220,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB5() {
-		Boiler b = new Boiler(5, K5_NAME, 130, 230);
+		Boiler b = new Boiler(5, Globals.K5_NAME, 130, 230);
 		initBoiler(b);
 		
 		return b;
@@ -188,7 +231,7 @@ public class BoilerWorkMaps {
 	 * @return
 	 */
 	public static Boiler getB6() {
-		Boiler b = new Boiler(6, K6_NAME, 130, 230);
+		Boiler b = new Boiler(6, Globals.K6_NAME, 130, 230);
 		initBoiler(b);
 		
 		return b;
@@ -210,5 +253,22 @@ public class BoilerWorkMaps {
 		
 		BoilerStation bs = new BoilerStation(boilers);
 		return bs;
+	}
+	
+	/**
+	 * Сброс конфигурации котлоагрегатов к начальным значениям.
+	 */
+	public static void resetConfiguration() {
+		initDefaultRegressions();
+	}
+	
+	/**
+	 * Установка новой конфигурации для котла.
+	 * @param boilerNum - номер котла
+	 * @param key - имя конфигурации
+	 * @param values - значения
+	 */
+	public static void setConfiguration(int boilerNum, String key, double[] values) {
+		rMap.put(getKey(boilerNum, key), values);
 	}
 }
