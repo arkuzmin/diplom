@@ -10,14 +10,15 @@ import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
  * @author ArKuzmin
  *
  */
-public class ParetoSet {
+@Deprecated
+public class ParetoSetDepr {
 	private List<VectorCriteria> set;
 	private List<VectorCriteria> paretoSet = new LinkedList<VectorCriteria>();
 	
 	private int i, j;
 	private IMeasure pm = new ParetoMeasure();
 	
-	public ParetoSet(List<VectorCriteria> set) {
+	public ParetoSetDepr(List<VectorCriteria> set) {
 		if (set == null || set.size() < 2) {
 			throw new IllegalArgumentException("Illegal argument!");
 		}
@@ -35,44 +36,49 @@ public class ParetoSet {
 	private void step1() {
 		i = 0;
 		j = 1;
-
-		while (true) {
-			if (pm.isBetter(set.get(i), set.get(j))) {
-				paretoSet.remove(set.get(j));
-				if (j < set.size()-1) {
-					j++;
-					continue;
-				} else {
-					if (i < set.size() - 2) {
-						i++;
-						j = i+1;
-						continue;
-					}
-					break;
-				}
-			} else {
-				if (pm.isBetter(set.get(j), set.get(i))) {
-					paretoSet.remove(set.get(i));
-					if (i < set.size() - 2) {
-						i++;
-						j = i+1;
-						continue;
-					}
-					break;
-				} else {
-					if (j < set.size()-1) {
-						j++;
-						continue;
-					} else {
-						if (i < set.size() - 2) {
-							i++;
-							j = i+1;
-							continue;
-						}
-						break;
-					}
-				}
-			}
+		step2();
+	}
+	
+	private void step2() {
+		if (pm.isBetter(set.get(i), set.get(j))) {
+			step3();
+		} else {
+			step5();
+		}
+	}
+	
+	private void step3() {
+		paretoSet.remove(set.get(j));
+		step4();
+	}
+	
+	private void step4() {
+		if (j < set.size()-1) {
+			j++;
+			step2();
+		} else {
+			step7();
+		}
+	}
+	
+	private void step5() {
+		if (pm.isBetter(set.get(j), set.get(i))) {
+			step6();
+		} else {
+			step4();
+		}
+	}
+	
+	private void step6() {
+		paretoSet.remove(set.get(i));
+		step7();
+	}
+	
+	private void step7() {
+		if (i < set.size() - 2) {
+			i++;
+			j = i+1;
+			step2();
 		}
 	}
 }

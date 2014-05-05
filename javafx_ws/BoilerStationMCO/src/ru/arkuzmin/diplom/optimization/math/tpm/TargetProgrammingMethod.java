@@ -34,7 +34,7 @@ public class TargetProgrammingMethod {
 		for (VectorCriteria vc : vectors) {
 			List<Criteria> critList =  vc.getVector();
 			for (Criteria cr : critList) {
-				if (CriteriaTarget.MAX.equals(cr.getTarget())) {
+				if (CriteriaTarget.MIN.equals(cr.getTarget())) {
 					cr.changeTarget();
 				}
 			}

@@ -10,6 +10,12 @@ public class Criteria {
 	private double value;
 	private CriteriaTarget target;
 	
+	public Criteria (Criteria other) {
+		this.name = other.getName();
+		this.value = other.getValue();
+		this.target = other.getTarget();
+	}
+	
 	public Criteria(final String name, CriteriaTarget target) {
 		this.name = name;
 		this.target = target;

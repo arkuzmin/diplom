@@ -28,13 +28,13 @@ public class RelativeImportanceMessageTest extends TestCase {
 		VectorCriteria vc1 = new VectorCriteria(list1);
 		
 		RelativeImportance ri1 = new RelativeImportance(0.6, 1, 2);
-		//RelativeImportance ri2 = new RelativeImportance(0.7, 0, 1);
-		//RelativeImportance ri3 = new RelativeImportance(0.88, 2, 3);
+		RelativeImportance ri2 = new RelativeImportance(0.7, 0, 1);
+		RelativeImportance ri3 = new RelativeImportance(0.88, 2, 3);
 		
 		List<RelativeImportance> riList = new LinkedList<RelativeImportance>();
 		riList.add(ri1);
-		//riList.add(ri2);
-		//riList.add(ri3);
+		riList.add(ri2);
+		riList.add(ri3);
 		
 		RelativeImportanceMessage rim = new RelativeImportanceMessage(riList);
 		System.out.println(rim);

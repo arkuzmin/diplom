@@ -1,5 +1,6 @@
 package ru.arkuzmin.diplom.optimization.math.dto;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -9,6 +10,14 @@ import java.util.List;
  */
 public class VectorCriteria {
 	private final List<Criteria> vector;
+	
+	public VectorCriteria(VectorCriteria other) {
+		vector = new LinkedList<Criteria>();
+		for (Criteria cr : other.getVector()) {
+			Criteria newCr = new Criteria(cr);
+			vector.add(newCr);
+		}
+	}
 	
 	public VectorCriteria(List<Criteria> vector) {
 		this.vector = vector;

@@ -9,11 +9,13 @@ public class Decision {
 	
 	private BoilerStation station;
 	private VectorCriteria vector;
+	private VectorCriteria currVector;
 	private double targetValue;
 	
 	public Decision(BoilerStation station, VectorCriteria vector, double targetValue) {
 		this.station = station;
 		this.vector = vector;
+		this.currVector = new VectorCriteria(vector);
 		this.targetValue = targetValue;
 	}
 	
@@ -32,6 +34,7 @@ public class Decision {
 	}
 	public void setVector(VectorCriteria vector) {
 		this.vector = vector;
+		this.currVector = new VectorCriteria(vector);
 	}
 	public double getTargetValue() {
 		return targetValue;
@@ -40,6 +43,14 @@ public class Decision {
 		this.targetValue = targetValue;
 	}
 	
+	public VectorCriteria getCurrVector() {
+		return currVector;
+	}
+
+	public void setCurrVector(VectorCriteria currVector) {
+		this.currVector = currVector;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");

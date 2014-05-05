@@ -5,6 +5,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.apache.log4j.Logger;
 import org.junit.Test;
 
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
@@ -13,6 +14,8 @@ import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
 import ru.arkuzmin.diplom.optimization.math.tpm.TargetProgrammingMethod;
 
 public class ParetoSetTest extends TestCase {
+	
+	private static final Logger logger = Logger.getLogger(ParetoSetTest.class);
 	
 	@Test
 	public void testParetoSet() {
@@ -89,7 +92,7 @@ public class ParetoSetTest extends TestCase {
 		assertEquals(3, res.size());
 		
 		for (VectorCriteria v : res) {
-			System.out.println(v);
+			logger.debug(v);
 		}
 		
 		cr1 = (new Criteria("Расход газа", CriteriaTarget.MIN)).setValue(0);
@@ -106,8 +109,8 @@ public class ParetoSetTest extends TestCase {
 		VectorCriteria vc6 = new VectorCriteria(list6);
 		
 		TargetProgrammingMethod tpm = new TargetProgrammingMethod(res, vc6);
-		System.out.println("----------------------");
-		System.out.println(tpm.getOptVector());
+		logger.debug("----------------------");
+		logger.debug(tpm.getOptVector());
 	}
 
 }
