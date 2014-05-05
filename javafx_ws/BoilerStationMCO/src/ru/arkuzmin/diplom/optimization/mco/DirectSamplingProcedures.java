@@ -11,6 +11,7 @@ import ru.arkuzmin.diplom.optimization.math.dto.BoilerStation;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
 import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.math.dto.WorkMode;
+import ru.arkuzmin.diplom.optimization.math.utils.MathUtils;
 
 /**
  * Метод прямых выборочных процедур с уменьшением интервала поиска.
@@ -115,7 +116,7 @@ public class DirectSamplingProcedures {
 			Boiler bst = stboilers.get(i);
 				
 			double r = (new Random()).nextDouble() - 0.5;
-			double dk = bq.getDK() + r * z * (bq.getMAX_DK() - bq.getMIN_DK());
+			double dk = MathUtils.toInt(bq.getDK() + r * z * (bq.getMAX_DK() - bq.getMIN_DK()));
 			bst.setDK(dk < bq.getMIN_DK() ? bq.getMIN_DK() : 
 					 (dk > bq.getMAX_DK() ? bq.getMAX_DK() : dk));
 				

@@ -8,6 +8,15 @@ package ru.arkuzmin.diplom.optimization.math.utils;
 public class MathUtils {
 
 	/**
+	 * Округление до целого.
+	 * @param d
+	 * @return
+	 */
+	public static int toInt(double d) {
+		return (int) (d + 0.5);
+	}
+	
+	/**
 	 * Перевод в другую систему счисления.
 	 * @param num
 	 * @return
