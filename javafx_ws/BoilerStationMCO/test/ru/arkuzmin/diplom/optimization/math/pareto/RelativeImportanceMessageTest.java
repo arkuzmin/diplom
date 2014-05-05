@@ -15,10 +15,10 @@ public class RelativeImportanceMessageTest extends TestCase {
 
 	@Test
 	public void testImportanceMessage() {
-		Criteria cr1 = new Criteria("1", CriteriaTarget.MAX).setValue(1);
-		Criteria cr2 = new Criteria("2", CriteriaTarget.MAX).setValue(2);
-		Criteria cr3 = new Criteria("3", CriteriaTarget.MAX).setValue(3);
-		Criteria cr4 = new Criteria("4", CriteriaTarget.MAX).setValue(4);
+		Criteria cr1 = new Criteria("1", CriteriaTarget.MAX).setValue(0);
+		Criteria cr2 = new Criteria("2", CriteriaTarget.MAX).setValue(-100);
+		Criteria cr3 = new Criteria("3", CriteriaTarget.MAX).setValue(-300);
+		Criteria cr4 = new Criteria("4", CriteriaTarget.MAX).setValue(92.3);
 		
 		List<Criteria> list1 = new LinkedList<Criteria>();
 		list1.add(cr1);
@@ -27,14 +27,13 @@ public class RelativeImportanceMessageTest extends TestCase {
 		list1.add(cr4);
 		VectorCriteria vc1 = new VectorCriteria(list1);
 		
-		RelativeImportance ri1 = new RelativeImportance(0.6, 1, 2);
-		RelativeImportance ri2 = new RelativeImportance(0.7, 0, 1);
-		RelativeImportance ri3 = new RelativeImportance(0.88, 2, 3);
+		RelativeImportance ri = new RelativeImportance(0.8, 0, 1);
+		RelativeImportance ri2 = new RelativeImportance(0.8, 0, 2);
 		
 		List<RelativeImportance> riList = new LinkedList<RelativeImportance>();
-		riList.add(ri1);
+		riList.add(ri);
 		riList.add(ri2);
-		riList.add(ri3);
+		//riList.add(ri3);
 		
 		RelativeImportanceMessage rim = new RelativeImportanceMessage(riList);
 		System.out.println(rim);

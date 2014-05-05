@@ -21,7 +21,8 @@ public class RelativeImportanceMessage {
 	private List<RelativeImportance> koeffs;
 	
 	public RelativeImportanceMessage (List<RelativeImportance> koeffs) {
-		initKoeffs(koeffs);
+		//initKoeffs(koeffs);
+		this.koeffs = koeffs;
 	}
 	
 	private void initKoeffs(List<RelativeImportance> koeffs) {
