@@ -21,7 +21,7 @@ import ru.arkuzmin.diplom.optimization.utils.UIManager;
  */
 public class DirectSamplingProcedures {
 	
-	private UIManager uiManager = new UIManager(true);
+	private UIManager uiManager;
 	
 	private static final double E = 0.05; 
 	private int P;
@@ -38,6 +38,9 @@ public class DirectSamplingProcedures {
 	BoilerStation stq;
 	BoilerStation sta;
 	
+	public void initUIManager(UIManager uiManager) {
+		this.uiManager = uiManager;
+	}
 	
 	public DirectSamplingProcedures(double DK, double gas_cost, double maz_cost, double eps, int P) {
 		this.eps = eps;
@@ -49,7 +52,6 @@ public class DirectSamplingProcedures {
 	}
 	
 	private void initQ() {
-		uiManager.logToConsole("Инициализация...");
 		double z = 0.0;
 		for (Boiler b : station.getBoilers()) {
 			double zi = b.getMAX_DK() - b.getMIN_DK();
@@ -74,18 +76,20 @@ public class DirectSamplingProcedures {
 	 * @return
 	 */
 	public List<Decision> getDecision() {
-		uiManager.logToConsole("Генерация всех возможных режимов работы...");
+		uiManager.logToUI("Генерация всех возможных режимов работы...");
 		WorkModeGenerator wmg = new WorkModeGenerator(Globals.BOILERS_NUM);
 		List<WorkMode> modes = wmg.getAllWorkModes();
-		uiManager.logToConsole("Всего возможных режимов: " + modes.size());
+		uiManager.logToUI("Всего возможных режимов: " + modes.size());
 		List<Decision> result = new LinkedList<Decision>();
 		
-		uiManager.logToConsole("Обработка режимов...");
+		uiManager.logToUI("Обработка режимов...");
+		double delta = (double)(1.0 / modes.size());
 		for (WorkMode mode : modes) {
 			BoilerStation station = getBStationWithMode(mode);
 			resetParams();
-			uiManager.fullLogToConsole("Вычисление оптимального распределения нагрузок для режима: " + mode);
+			uiManager.fullLogToUI("Вычисление оптимального распределения нагрузок для режима: " + mode);
 			step1(station);
+			uiManager.setProgress(uiManager.currProgress() + delta);
 			
 			if (stq != null) {
 				Decision d = new Decision(stq, tf.getCValues(stq), tf.getY(stq));

@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextArea;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
@@ -20,7 +22,7 @@ import ru.arkuzmin.diplom.optimization.utils.UIManager;
  */
 public class MultiCriteriaOptimization {
 	
-	private UIManager uiManager = new UIManager(true);
+	private UIManager uiManager = new UIManager(false);
 	
 	private RelativeImportanceMessage rim;
 	private double maz_cost;
@@ -37,6 +39,14 @@ public class MultiCriteriaOptimization {
 		this.DK = DK;
 	}
 	
+	public void initProgress(ProgressIndicator progress) {
+		this.uiManager.initProgress(progress);
+	}
+	
+	public void initLogArea(TextArea logArea) {
+		this.uiManager.initLogArea(logArea);
+	}
+	
 	public void setPrecision(double eps, int P) {
 		this.eps = eps;
 		this.P = P;
@@ -47,18 +57,19 @@ public class MultiCriteriaOptimization {
 	 * @return
 	 */
 	public Decision solve() {
-		uiManager.logToConsole("Начало оптимизации...");
-		uiManager.logToConsole("Поиск множества решений...");
+		uiManager.logToUI("Начало оптимизации...");
+		uiManager.logToUI("Поиск множества решений...");
 		// Находим множество решений
 		List<Decision> dSet = findDecisionSet();
-		uiManager.logToConsole("Вычисление множества Парето...");
+		uiManager.logToUI("Вычисление множества Парето...");
 		// Вычисляем множество Парето
 		dSet = calculateParetoSet(dSet);
-		uiManager.logToConsole("Сужение множества Парето...");
+		uiManager.logToUI("Сужение множества Парето...");
 		// Выполняем сужение множества Парето
 		dSet = narrowParetoSet(dSet);
 		// Находим решение методом целевого программирования
-		uiManager.logToConsole("Метод целевого программирования...");
+		uiManager.logToUI("Метод целевого программирования...");
+		uiManager.allDone();
 		return getTPMDecision(dSet);
 	}
 	
@@ -131,6 +142,7 @@ public class MultiCriteriaOptimization {
 	
 	private List<Decision> findDecisionSet() {
 		DirectSamplingProcedures dsp = new DirectSamplingProcedures(DK, gas_cost, maz_cost, eps, P);
+		dsp.initUIManager(uiManager);
 		return dsp.getDecision();
 	}
 }
