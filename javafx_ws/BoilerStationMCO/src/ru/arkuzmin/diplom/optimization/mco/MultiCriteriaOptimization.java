@@ -5,8 +5,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javafx.scene.control.ProgressIndicator;
-import javafx.scene.control.TextArea;
 import ru.arkuzmin.diplom.optimization.math.dto.Criteria;
 import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
@@ -39,12 +37,8 @@ public class MultiCriteriaOptimization {
 		this.DK = DK;
 	}
 	
-	public void initProgress(ProgressIndicator progress) {
-		this.uiManager.initProgress(progress);
-	}
-	
-	public void initLogArea(TextArea logArea) {
-		this.uiManager.initLogArea(logArea);
+	public void initUIManager(UIManager uiManager) {
+		this.uiManager = uiManager;
 	}
 	
 	public void setPrecision(double eps, int P) {
@@ -52,24 +46,36 @@ public class MultiCriteriaOptimization {
 		this.P = P;
 	}
 	
+	private void logToUI(String msg) {
+		if (uiManager != null) {
+			uiManager.logToUI(msg);
+		}
+	}
+	
+	private void allDone() {
+		if (uiManager != null) {
+			uiManager.allDone();
+		}
+	}
+	
 	/**
 	 * Возвращает решение многокритериальной задачи.
 	 * @return
 	 */
 	public Decision solve() {
-		uiManager.logToUI("Начало оптимизации...");
-		uiManager.logToUI("Поиск множества решений...");
+		logToUI("Начало оптимизации...");
+		logToUI("Поиск множества решений...");
 		// Находим множество решений
 		List<Decision> dSet = findDecisionSet();
-		uiManager.logToUI("Вычисление множества Парето...");
+		logToUI("Вычисление множества Парето...");
 		// Вычисляем множество Парето
 		dSet = calculateParetoSet(dSet);
-		uiManager.logToUI("Сужение множества Парето...");
+		logToUI("Сужение множества Парето...");
 		// Выполняем сужение множества Парето
 		dSet = narrowParetoSet(dSet);
 		// Находим решение методом целевого программирования
-		uiManager.logToUI("Метод целевого программирования...");
-		uiManager.allDone();
+		logToUI("Метод целевого программирования...");
+		allDone();
 		return getTPMDecision(dSet);
 	}
 	

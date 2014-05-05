@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.arkuzmin.diplom.optimization.ui.controller.MainViewController">
   <!-- TODO Add Nodes -->
   <children>
     <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="1000.0">
       <bottom>
-        <BorderPane prefHeight="-1.0" prefWidth="1000.0">
+        <BorderPane prefHeight="200.0" prefWidth="1000.0">
           <center>
-            <BorderPane prefHeight="-1.0" prefWidth="-1.0">
+            <BorderPane prefHeight="200.0" prefWidth="-1.0">
               <center>
                 <TextArea fx:id="logArea" disable="true" editable="false" opacity="1.0" prefWidth="-1.0" text="" wrapText="true" />
               </center>
               <right>
                 <BorderPane prefHeight="200.0" prefWidth="200.0">
                   <center>
-                    <ProgressIndicator fx:id="progress" disable="false" progress="0.0" />
+                    <ProgressIndicator fx:id="progress" cache="false" disable="false" pickOnBounds="false" progress="0.0" />
                   </center>
                   <top>
                     <BorderPane prefHeight="35.0" prefWidth="200.0">
@@ -30,8 +33,21 @@
                   </top>
                 </BorderPane>
               </right>
+              <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+              </BorderPane.margin>
             </BorderPane>
           </center>
+          <top>
+            <BorderPane prefHeight="25.0" prefWidth="1000.0">
+              <center>
+                <CheckBox fx:id="chckFullLogging" mnemonicParsing="false" text="Подробное логирование (может занять больше времени)" BorderPane.alignment="CENTER_LEFT" />
+              </center>
+              <BorderPane.margin>
+                <Insets left="10.0" fx:id="x1" />
+              </BorderPane.margin>
+            </BorderPane>
+          </top>
         </BorderPane>
       </bottom>
       <center>
@@ -49,7 +65,73 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <center>
+                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                          <content>
+                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                              <children>
+                                                <VBox prefHeight="386.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                  <children>
+                                                    <Pane prefHeight="35.0" prefWidth="990.0">
+                                                      <children>
+                                                        <TextField editable="false" layoutX="262.0" layoutY="7.0" prefWidth="100.0" text="90" />
+                                                        <Label layoutX="376.0" layoutY="10.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                        <TextField editable="false" layoutX="593.0" layoutY="7.0" prefWidth="100.0" promptText="" text="170" />
+                                                      </children>
+                                                    </Pane>
+                                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                      <center>
+                                                        <TableView prefHeight="200.0" prefWidth="200.0">
+                                                          <columns>
+                                                            <TableColumn prefWidth="75.0" text="Column X" />
+                                                            <TableColumn prefWidth="75.0" text="Column X" />
+                                                          </columns>
+                                                          <BorderPane.margin>
+                                                            <Insets left="10.0" fx:id="x1" />
+                                                          </BorderPane.margin>
+                                                        </TableView>
+                                                      </center>
+                                                      <right>
+                                                        <BarChart prefHeight="184.0" prefWidth="450.0">
+                                                          <xAxis>
+                                                            <CategoryAxis side="BOTTOM" />
+                                                          </xAxis>
+                                                          <yAxis>
+                                                            <NumberAxis side="LEFT" />
+                                                          </yAxis>
+                                                          <BorderPane.margin>
+                                                            <Insets right="10.0" />
+                                                          </BorderPane.margin>
+                                                        </BarChart>
+                                                      </right>
+                                                      <top>
+                                                        <Label text="Зависимость потери тепла с уходящими газами (q2) от паровой нагрузки" underline="false" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x1">
+                                                          <font>
+                                                            <Font name="System Bold" size="12.0" />
+                                                          </font>
+                                                        </Label>
+                                                      </top>
+                                                    </BorderPane>
+                                                  </children>
+                                                </VBox>
+                                              </children>
+                                            </AnchorPane>
+                                          </content>
+                                        </ScrollPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <CheckBox mnemonicParsing="false" text="Редактировать режимную карту котла вручную" BorderPane.alignment="CENTER_LEFT">
+                                              <BorderPane.margin>
+                                                <Insets left="5.0" fx:id="x2" />
+                                              </BorderPane.margin>
+                                            </CheckBox>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>

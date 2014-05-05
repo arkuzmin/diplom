@@ -4,9 +4,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import ru.arkuzmin.diplom.optimization.mco.MultiCriteriaOptimization;
+import ru.arkuzmin.diplom.optimization.utils.UIManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 
@@ -21,11 +23,17 @@ public class MainViewController implements Initializable {
 	@FXML
 	TextArea logArea;
 	
+	@FXML
+	CheckBox chckFullLogging;
+	
 	
 	public void solve() {
 		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, 638);
-		mco.initLogArea(logArea);
-		mco.initProgress(progress);
+		UIManager uiManager = new UIManager(chckFullLogging.isSelected());
+		uiManager.initLogArea(logArea);
+		uiManager.initProgress(progress);
+		
+		mco.initUIManager(uiManager);
 		mco.setPrecision(0.1, 50);
 		Thread t = new Solver(mco);
 		t.start();
