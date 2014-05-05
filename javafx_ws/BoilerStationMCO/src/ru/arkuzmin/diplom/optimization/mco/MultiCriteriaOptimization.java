@@ -11,6 +11,7 @@ import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
 import ru.arkuzmin.diplom.optimization.math.pareto.ParetoSet;
 import ru.arkuzmin.diplom.optimization.math.pareto.RelativeImportanceMessage;
 import ru.arkuzmin.diplom.optimization.math.tpm.TargetProgrammingMethod;
+import ru.arkuzmin.diplom.optimization.utils.UIManager;
 
 /**
  * Задача многокритериальной оптимизации.
@@ -18,6 +19,8 @@ import ru.arkuzmin.diplom.optimization.math.tpm.TargetProgrammingMethod;
  *
  */
 public class MultiCriteriaOptimization {
+	
+	private UIManager uiManager = new UIManager(true);
 	
 	private RelativeImportanceMessage rim;
 	private double maz_cost;
@@ -44,13 +47,18 @@ public class MultiCriteriaOptimization {
 	 * @return
 	 */
 	public Decision solve() {
+		uiManager.logToConsole("Начало оптимизации...");
+		uiManager.logToConsole("Поиск множества решений...");
 		// Находим множество решений
 		List<Decision> dSet = findDecisionSet();
+		uiManager.logToConsole("Вычисление множества Парето...");
 		// Вычисляем множество Парето
 		dSet = calculateParetoSet(dSet);
+		uiManager.logToConsole("Сужение множества Парето...");
 		// Выполняем сужение множества Парето
 		dSet = narrowParetoSet(dSet);
 		// Находим решение методом целевого программирования
+		uiManager.logToConsole("Метод целевого программирования...");
 		return getTPMDecision(dSet);
 	}
 	

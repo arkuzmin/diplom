@@ -12,6 +12,7 @@ import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
 import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.math.dto.WorkMode;
 import ru.arkuzmin.diplom.optimization.math.utils.MathUtils;
+import ru.arkuzmin.diplom.optimization.utils.UIManager;
 
 /**
  * Метод прямых выборочных процедур с уменьшением интервала поиска.
@@ -19,6 +20,8 @@ import ru.arkuzmin.diplom.optimization.math.utils.MathUtils;
  *
  */
 public class DirectSamplingProcedures {
+	
+	private UIManager uiManager = new UIManager(true);
 	
 	private static final double E = 0.05; 
 	private int P;
@@ -46,6 +49,7 @@ public class DirectSamplingProcedures {
 	}
 	
 	private void initQ() {
+		uiManager.logToConsole("Инициализация...");
 		double z = 0.0;
 		for (Boiler b : station.getBoilers()) {
 			double zi = b.getMAX_DK() - b.getMIN_DK();
@@ -70,13 +74,17 @@ public class DirectSamplingProcedures {
 	 * @return
 	 */
 	public List<Decision> getDecision() {
+		uiManager.logToConsole("Генерация всех возможных режимов работы...");
 		WorkModeGenerator wmg = new WorkModeGenerator(Globals.BOILERS_NUM);
 		List<WorkMode> modes = wmg.getAllWorkModes();
+		uiManager.logToConsole("Всего возможных режимов: " + modes.size());
 		List<Decision> result = new LinkedList<Decision>();
 		
+		uiManager.logToConsole("Обработка режимов...");
 		for (WorkMode mode : modes) {
 			BoilerStation station = getBStationWithMode(mode);
 			resetParams();
+			uiManager.fullLogToConsole("Вычисление оптимального распределения нагрузок для режима: " + mode);
 			step1(station);
 			
 			if (stq != null) {
