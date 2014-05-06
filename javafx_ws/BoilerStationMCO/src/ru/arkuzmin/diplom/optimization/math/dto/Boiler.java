@@ -56,6 +56,26 @@ public class Boiler {
 	// Коэффициент избытка воздуха в режимном сечении
 	private IBoilerRegressionFunction apc_regression = null;
 	
+	public IBoilerRegressionFunction getQ2_regression() {
+		return q2_regression;
+	}
+
+	public IBoilerRegressionFunction getQ5_regression() {
+		return q5_regression;
+	}
+
+	public IBoilerRegressionFunction getTyx_regression() {
+		return tyx_regression;
+	}
+
+	public IBoilerRegressionFunction getAyx_regression() {
+		return ayx_regression;
+	}
+
+	public IBoilerRegressionFunction getApc_regression() {
+		return apc_regression;
+	}
+
 	/**
 	 * Параметры - константы.
 	 */

@@ -1,10 +1,11 @@
-package ru.arkuzmin.diplom.optimization.chart;
+package ru.arkuzmin.diplom.optimization.fx;
 
 import org.jfree.data.xy.AbstractXYDataset;
 import org.jfree.data.xy.XYDataset;
 
 import ru.arkuzmin.diplom.optimization.math.regression.IRegressionFunction;
 
+@Deprecated
 public class RegressionDataset extends AbstractXYDataset implements XYDataset {
 
 	private final IRegressionFunction regression;

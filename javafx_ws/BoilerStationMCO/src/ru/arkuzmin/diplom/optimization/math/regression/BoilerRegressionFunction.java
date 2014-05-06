@@ -30,4 +30,14 @@ public class BoilerRegressionFunction implements IBoilerRegressionFunction {
 		
 		return sb.toString();
 	}
+
+	@Override
+	public IRegressionFunction getRegressionFunction(BoilerStates state) {
+		if (BoilerStates.ON_GAS.equals(state)) {
+			return gas;
+		} else if (BoilerStates.ON_MAZ.equals(state)) {
+			return maz;
+		}
+		return null;
+	}
 }

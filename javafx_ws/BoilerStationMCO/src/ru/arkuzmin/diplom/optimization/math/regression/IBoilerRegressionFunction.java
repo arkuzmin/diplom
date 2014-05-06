@@ -15,4 +15,6 @@ public interface IBoilerRegressionFunction {
 	 * @return
 	 */
 	public double getY(double x, BoilerStates state);
+	
+	public IRegressionFunction getRegressionFunction(BoilerStates state);
 }

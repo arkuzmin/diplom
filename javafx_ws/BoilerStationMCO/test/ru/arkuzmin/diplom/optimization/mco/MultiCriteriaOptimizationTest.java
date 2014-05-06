@@ -17,9 +17,9 @@ public class MultiCriteriaOptimizationTest extends TestCase {
 	
 	@Test
 	public void testMCO() {
-		RelativeImportance ri = new RelativeImportance(0.7, 0, 1);
-		RelativeImportance ri2 = new RelativeImportance(0.7, 0, 2);
-		RelativeImportance ri3 = new RelativeImportance(0.7, 0, 3);
+		RelativeImportance ri = new RelativeImportance(0.99, 0, 1);
+		RelativeImportance ri2 = new RelativeImportance(0.99, 0, 2);
+		RelativeImportance ri3 = new RelativeImportance(0.99, 0, 3);
 		List<RelativeImportance> koeffs = new LinkedList<RelativeImportance>();
 		koeffs.add(ri);
 		koeffs.add(ri2);

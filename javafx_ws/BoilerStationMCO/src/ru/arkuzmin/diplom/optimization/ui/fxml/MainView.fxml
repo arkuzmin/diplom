@@ -71,7 +71,7 @@
                                           <content>
                                             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
                                               <children>
-                                                <VBox prefHeight="386.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <VBox fx:id="b1VBox" prefHeight="386.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                   <children>
                                                     <Pane prefHeight="35.0" prefWidth="990.0">
                                                       <children>
@@ -80,7 +80,7 @@
                                                         <TextField editable="false" layoutX="593.0" layoutY="7.0" prefWidth="100.0" promptText="" text="170" />
                                                       </children>
                                                     </Pane>
-                                                    <BorderPane prefHeight="200.0" prefWidth="200.0">
+                                                    <BorderPane id="q2Border" fx:id="b1q2Border" prefHeight="200.0" prefWidth="200.0">
                                                       <center>
                                                         <TableView prefHeight="200.0" prefWidth="200.0">
                                                           <columns>
@@ -92,19 +92,6 @@
                                                           </BorderPane.margin>
                                                         </TableView>
                                                       </center>
-                                                      <right>
-                                                        <BarChart prefHeight="184.0" prefWidth="450.0">
-                                                          <xAxis>
-                                                            <CategoryAxis side="BOTTOM" />
-                                                          </xAxis>
-                                                          <yAxis>
-                                                            <NumberAxis side="LEFT" />
-                                                          </yAxis>
-                                                          <BorderPane.margin>
-                                                            <Insets right="10.0" />
-                                                          </BorderPane.margin>
-                                                        </BarChart>
-                                                      </right>
                                                       <top>
                                                         <Label text="Зависимость потери тепла с уходящими газами (q2) от паровой нагрузки" underline="false" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x1">
                                                           <font>

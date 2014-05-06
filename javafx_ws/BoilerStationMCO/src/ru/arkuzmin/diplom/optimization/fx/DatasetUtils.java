@@ -1,4 +1,4 @@
-package ru.arkuzmin.diplom.optimization.chart;
+package ru.arkuzmin.diplom.optimization.fx;
 
 import java.util.Date;
 import java.util.List;
@@ -15,6 +15,7 @@ import ru.arkuzmin.diplom.optimization.math.dto.VectorCriteria;
  * @author ArKuzmin
  *
  */
+@Deprecated
 public class DatasetUtils {
 
 	/**
