@@ -1,0 +1,11 @@
+.bordered-pane-gas {
+  -fx-background-color: rgb(236,249,237);
+  -fx-border-color: black;
+  -fx-border-width: 1;
+}
+
+.bordered-pane-maz {
+  -fx-background-color: rgb(254,239,233);
+  -fx-border-color: black;
+  -fx-border-width: 1;
+}

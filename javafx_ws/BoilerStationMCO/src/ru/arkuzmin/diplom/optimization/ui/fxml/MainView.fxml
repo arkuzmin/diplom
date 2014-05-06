@@ -8,10 +8,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.arkuzmin.diplom.optimization.ui.controller.MainViewController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ru.arkuzmin.diplom.optimization.ui.controller.MainViewController">
   <!-- TODO Add Nodes -->
   <children>
-    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="600.0" prefWidth="1000.0">
+    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="700.0" prefWidth="1000.0">
       <bottom>
         <BorderPane prefHeight="200.0" prefWidth="1000.0">
           <center>
@@ -71,7 +71,7 @@
                                           <content>
                                             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
                                               <children>
-                                                <VBox fx:id="b1VBox" prefHeight="386.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                <VBox fx:id="b1VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                   <children>
                                                     <Pane prefHeight="35.0" prefWidth="990.0">
                                                       <children>
@@ -80,27 +80,10 @@
                                                         <TextField editable="false" layoutX="593.0" layoutY="7.0" prefWidth="100.0" promptText="" text="170" />
                                                       </children>
                                                     </Pane>
-                                                    <BorderPane id="q2Border" fx:id="b1q2Border" prefHeight="200.0" prefWidth="200.0">
-                                                      <center>
-                                                        <TableView prefHeight="200.0" prefWidth="200.0">
-                                                          <columns>
-                                                            <TableColumn prefWidth="75.0" text="Column X" />
-                                                            <TableColumn prefWidth="75.0" text="Column X" />
-                                                          </columns>
-                                                          <BorderPane.margin>
-                                                            <Insets left="10.0" fx:id="x1" />
-                                                          </BorderPane.margin>
-                                                        </TableView>
-                                                      </center>
-                                                      <top>
-                                                        <Label text="Зависимость потери тепла с уходящими газами (q2) от паровой нагрузки" underline="false" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x1">
-                                                          <font>
-                                                            <Font name="System Bold" size="12.0" />
-                                                          </font>
-                                                        </Label>
-                                                      </top>
-                                                    </BorderPane>
                                                   </children>
+                                                  <padding>
+                                                    <Insets />
+                                                  </padding>
                                                 </VBox>
                                               </children>
                                             </AnchorPane>

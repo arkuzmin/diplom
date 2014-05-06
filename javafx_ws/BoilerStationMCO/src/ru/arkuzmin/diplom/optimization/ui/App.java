@@ -22,7 +22,7 @@ public class App extends Application {
         try {
         	primaryStage.initStyle(StageStyle.DECORATED);
             AnchorPane page = (AnchorPane) FXMLLoader.load(App.class.getResource("/ru/arkuzmin/diplom/optimization/ui/fxml/MainView.fxml"));
-            Scene scene = new Scene(page, 1000, 600);
+            Scene scene = new Scene(page, 1000, 700);
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();

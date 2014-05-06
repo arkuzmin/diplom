@@ -29,4 +29,9 @@ public interface Globals {
 	public static final String CR_NAME_M_CONS = "Расход мазута";
 	public static final String CR_NAME_MON_CONS = "Финансовые затраты";
 	public static final String CR_NAME_KPD = "КПД группы котлоагрегатов";
+	
+	/**
+	 * CSS
+	 */
+	public static final String CSS_STYLES = "/ru/arkuzmin/diplom/optimization/ui/css/styles.css";
 }

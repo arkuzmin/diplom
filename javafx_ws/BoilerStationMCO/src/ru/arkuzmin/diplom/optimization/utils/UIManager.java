@@ -3,7 +3,6 @@ package ru.arkuzmin.diplom.optimization.utils;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextArea;
 
