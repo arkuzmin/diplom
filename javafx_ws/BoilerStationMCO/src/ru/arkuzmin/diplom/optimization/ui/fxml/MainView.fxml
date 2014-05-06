@@ -65,39 +65,68 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                    <BorderPane prefHeight="414.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                       <center>
-                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
-                                          <content>
-                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
-                                              <children>
-                                                <VBox fx:id="b1VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                                   <children>
-                                                    <Pane prefHeight="35.0" prefWidth="990.0">
-                                                      <children>
-                                                        <TextField editable="false" layoutX="262.0" layoutY="7.0" prefWidth="100.0" text="90" />
-                                                        <Label layoutX="376.0" layoutY="10.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                        <TextField editable="false" layoutX="593.0" layoutY="7.0" prefWidth="100.0" promptText="" text="170" />
-                                                      </children>
-                                                    </Pane>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox fx:id="b1VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
                                                   </children>
-                                                  <padding>
-                                                    <Insets />
-                                                  </padding>
-                                                </VBox>
-                                              </children>
-                                            </AnchorPane>
-                                          </content>
-                                        </ScrollPane>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
                                       </center>
                                       <top>
                                         <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
                                           <center>
-                                            <CheckBox mnemonicParsing="false" text="Редактировать режимную карту котла вручную" BorderPane.alignment="CENTER_LEFT">
-                                              <BorderPane.margin>
-                                                <Insets left="5.0" fx:id="x2" />
-                                              </BorderPane.margin>
-                                            </CheckBox>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
                                           </center>
                                         </BorderPane>
                                       </top>
