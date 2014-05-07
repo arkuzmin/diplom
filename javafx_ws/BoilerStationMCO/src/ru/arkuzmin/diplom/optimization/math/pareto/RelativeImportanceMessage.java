@@ -25,6 +25,7 @@ public class RelativeImportanceMessage {
 		this.koeffs = koeffs;
 	}
 	
+	@SuppressWarnings("unused")
 	private void initKoeffs(List<RelativeImportance> koeffs) {
 		Map<Integer, RelativeImportance> map = new HashMap<Integer, RelativeImportance>();
 		for (RelativeImportance ri : koeffs) {
