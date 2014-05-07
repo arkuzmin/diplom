@@ -37,7 +37,7 @@ public class RegressionPane extends BorderPane {
 		}
 		
 		this.setPrefWidth(990);
-		this.setPrefHeight(240);
+		this.setPrefHeight(500);
 		this.chartName = chartName;
 		this.paneName = paneName;
 		this.yLbl = yLbl;

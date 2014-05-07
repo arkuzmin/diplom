@@ -1,5 +1,6 @@
 package ru.arkuzmin.diplom.optimization.ui;
 
+import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import ru.arkuzmin.diplom.optimization.math.dto.Boiler;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerStates;
@@ -36,23 +37,31 @@ public class BoilerPaneManager {
 	private static final String PANE_LBL_APC_G = "Зависимость коэффициента избытка воздуха в режимном сечении (Apc.) от тепловой нагрузки на котел (DK) при работе на газе";
 	private static final String PANE_LBL_APC_M = "Зависимость коэффициента избытка воздуха в режимном сечении (Apc.) от тепловой нагрузки на котел (DK) при работе на мазуте";
 	
-	public static void addBoilerInfo(Boiler b, VBox vbox) {
-		vbox.getChildren().add(new RegressionPane(b.getQ2_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_Q2, CHART_Y_Q2, PANE_LBL_Q2_G));
-		vbox.getChildren().add(new RegressionPane(b.getQ2_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_Q2, CHART_Y_Q2, PANE_LBL_Q2_M));
+	public static void addBoilerInfo(Boiler b, TextField dkMin, TextField dkMax, VBox q2, VBox q5, VBox tyx, VBox ayx, VBox apc) {
 		
-		//vbox.getChildren().add(new RegressionPane(b.getQ5_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_Q5, CHART_Y_Q5, PANE_LBL_Q5_G));
-		//vbox.getChildren().add(new RegressionPane(b.getQ5_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_Q5, CHART_Y_Q5, PANE_LBL_Q5_M));
-		/*
-		vbox.getChildren().add(new RegressionPane(b.getTyx_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_TYX, CHART_Y_TYX, PANE_LBL_TYX_G));
-		vbox.getChildren().add(new RegressionPane(b.getTyx_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_TYX, CHART_Y_TYX, PANE_LBL_TYX_M));
+		dkMin.setText(String.valueOf(b.getMIN_DK()));
+		dkMax.setText(String.valueOf(b.getMAX_DK()));
 		
-		vbox.getChildren().add(new RegressionPane(b.getAyx_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_AYX, CHART_Y_AYX, PANE_LBL_AYX_G));
-		vbox.getChildren().add(new RegressionPane(b.getAyx_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_AYX, CHART_Y_AYX, PANE_LBL_AYX_M));
+		q2.getChildren().add(new RegressionPane(b.getQ2_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_Q2, CHART_Y_Q2, PANE_LBL_Q2_G));
+		q2.getChildren().add(new RegressionPane(b.getQ2_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_Q2, CHART_Y_Q2, PANE_LBL_Q2_M));
+		q2.setPrefHeight(700);
 		
-		vbox.getChildren().add(new RegressionPane(b.getApc_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_APC, CHART_Y_APC, PANE_LBL_APC_G));
-		vbox.getChildren().add(new RegressionPane(b.getApc_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_APC, CHART_Y_APC, PANE_LBL_APC_M));
-		*/
-		vbox.setPrefHeight(700);
+		q5.getChildren().add(new RegressionPane(b.getQ5_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_Q5, CHART_Y_Q5, PANE_LBL_Q5_G));
+		q5.getChildren().add(new RegressionPane(b.getQ5_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_Q5, CHART_Y_Q5, PANE_LBL_Q5_M));
+		q5.setPrefHeight(700);
+		
+		tyx.getChildren().add(new RegressionPane(b.getTyx_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_TYX, CHART_Y_TYX, PANE_LBL_TYX_G));
+		tyx.getChildren().add(new RegressionPane(b.getTyx_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_TYX, CHART_Y_TYX, PANE_LBL_TYX_M));
+		tyx.setPrefHeight(700);
+		
+		ayx.getChildren().add(new RegressionPane(b.getAyx_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_AYX, CHART_Y_AYX, PANE_LBL_AYX_G));
+		ayx.getChildren().add(new RegressionPane(b.getAyx_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_AYX, CHART_Y_AYX, PANE_LBL_AYX_M));
+		ayx.setPrefHeight(700);
+		
+		apc.getChildren().add(new RegressionPane(b.getApc_regression().getRegressionFunction(BoilerStates.ON_GAS), BoilerStates.ON_GAS, CHART_LBL_APC, CHART_Y_APC, PANE_LBL_APC_G));
+		apc.getChildren().add(new RegressionPane(b.getApc_regression().getRegressionFunction(BoilerStates.ON_MAZ), BoilerStates.ON_MAZ, CHART_LBL_APC, CHART_Y_APC, PANE_LBL_APC_M));
+		apc.setPrefHeight(700);
+		
 	}
 	
 }

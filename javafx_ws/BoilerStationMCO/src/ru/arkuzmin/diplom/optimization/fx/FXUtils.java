@@ -53,7 +53,13 @@ public class FXUtils {
 				min = ay;
 			}
 		}
-		double step = (max - min) / (double)(2 * regression.getPointsNum());
+		double step;
+		if (max - min <= 0.001) {
+			step = max / regression.getPointsNum();
+		} else {
+			step = (max - min) / (double)(2 * regression.getPointsNum());
+		}
+		
 		NumberAxis yAxis = new NumberAxis(min - step, max + step, step);
 		return yAxis;
 	}

@@ -79,7 +79,7 @@
                                                           <content>
                                                             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
                                                               <children>
-                                                                <VBox fx:id="b1VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                <VBox id="b1VBox" fx:id="b1q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                   <padding>
                                                                     <Insets fx:id="x2" />
                                                                   </padding>
@@ -96,22 +96,102 @@
                                             </Tab>
                                             <Tab text="Потери тепла за счет конвекции (q5)">
                                               <content>
-                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b1q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
                                               </content>
                                             </Tab>
                                             <Tab text="Темп. ух. газов (Tyx)">
                                               <content>
-                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b1tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
                                               </content>
                                             </Tab>
                                             <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
                                               <content>
-                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b1ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
                                               </content>
                                             </Tab>
                                             <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
                                               <content>
-                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b1apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
                                               </content>
                                             </Tab>
                                           </tabs>
@@ -122,9 +202,13 @@
                                           <center>
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
-                                                <TextField disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <TextField fx:id="b1DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=">
+                                                  <font>
+                                                    <Font name="System Bold" size="12.0" fx:id="x3" />
+                                                  </font>
+                                                </Label>
+                                                <TextField fx:id="b1DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -139,7 +223,152 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="414.0" prefWidth="1000.0">
+                                      <center>
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b2q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b2q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b2tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b2ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b2apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField id="b1DKMin" fx:id="b2DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b2DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>
@@ -148,7 +377,152 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="414.0" prefWidth="1000.0">
+                                      <center>
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b3q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b3q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b3tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b3ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b3apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField id="b1DKMin" fx:id="b3DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b3DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>
@@ -157,7 +531,152 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="414.0" prefWidth="1000.0">
+                                      <center>
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b4q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b4q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b4tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b4ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b4apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField id="b1DKMin" fx:id="b4DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b4DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>
@@ -166,7 +685,152 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="414.0" prefWidth="1000.0">
+                                      <center>
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b5q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b5q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b5tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b5ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b5apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField id="b1DKMin" fx:id="b5DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b5DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>
@@ -175,7 +839,152 @@
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
-                                    <BorderPane prefHeight="314.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="414.0" prefWidth="1000.0">
+                                      <center>
+                                        <TabPane prefHeight="414.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+                                          <tabs>
+                                            <Tab text="Потери тепла с ух. газами (q2)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane prefHeight="169.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b6q2VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Потери тепла за счет конвекции (q5)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b6q5VBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Темп. ух. газов (Tyx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b6tyxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в ух. газах (Ayx)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b6ayxVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                            <Tab text="Коэф. избытка возд. в реж. сечении (Apc)">
+                                              <content>
+                                                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                                  <children>
+                                                    <BorderPane layoutX="0.0" layoutY="0.0" prefHeight="358.0" prefWidth="1000.0">
+                                                      <center>
+                                                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                                                          <content>
+                                                            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
+                                                              <children>
+                                                                <VBox id="b1VBox" fx:id="b6apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                  <padding>
+                                                                    <Insets fx:id="x2" />
+                                                                  </padding>
+                                                                </VBox>
+                                                              </children>
+                                                            </AnchorPane>
+                                                          </content>
+                                                        </ScrollPane>
+                                                      </center>
+                                                    </BorderPane>
+                                                  </children>
+                                                </AnchorPane>
+                                              </content>
+                                            </Tab>
+                                          </tabs>
+                                        </TabPane>
+                                      </center>
+                                      <top>
+                                        <BorderPane prefHeight="25.0" prefWidth="1000.0" BorderPane.alignment="CENTER_LEFT" BorderPane.margin="$x2">
+                                          <center>
+                                            <Pane prefHeight="35.0" prefWidth="990.0">
+                                              <children>
+                                                <TextField id="b1DKMin" fx:id="b6DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b6DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                              </children>
+                                            </Pane>
+                                          </center>
+                                        </BorderPane>
+                                      </top>
+                                    </BorderPane>
                                   </children>
                                 </AnchorPane>
                               </content>
