@@ -3,6 +3,8 @@ package ru.arkuzmin.diplom.optimization.math.regression;
 import java.util.HashMap;
 import java.util.Map;
 
+import ru.arkuzmin.diplom.optimization.math.utils.MathUtils;
+
 /**
  * Полином 3 степени.
  * @author ArKuzmin
@@ -77,26 +79,17 @@ public class CubicalRegressionFunction implements IRegressionFunction {
 		return x*x*x*a0_cf + x*x*a1_cf + x*a2_cf + a3_cf;
 	}
 	
-	private String koeffToString(double koeff) {
-		String str = String.valueOf(koeff);
-		int pos = str.indexOf(".");
-		pos = pos > 0 ? pos : 0;
-		int ind = pos + 4 > str.length() ? str.length() : pos + 4;
-		String result = str.substring(0, ind);
-		return result;
-	}
-	
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder("");
 		sb.append("f(x) = ")
-		  .append(koeffToString(a0_cf)).append("(x^3)")
+		  .append(MathUtils.doubleToString(a0_cf, 4)).append("(x^3)")
 		  .append(a1_cf >= 0 ? "+" : "")
-		  .append(koeffToString(a1_cf)).append("(x^2)")
+		  .append(MathUtils.doubleToString(a1_cf, 4)).append("(x^2)")
 		  .append(a2_cf >= 0 ? "+" : "")
-		  .append(koeffToString(a2_cf)).append("(x)")
+		  .append(MathUtils.doubleToString(a2_cf, 4)).append("(x)")
 		  .append(a3_cf >= 0 ? "+" : "")
-		  .append(koeffToString(a3_cf));
+		  .append(MathUtils.doubleToString(a3_cf, 4));
 		
 		return sb.toString();
 	}

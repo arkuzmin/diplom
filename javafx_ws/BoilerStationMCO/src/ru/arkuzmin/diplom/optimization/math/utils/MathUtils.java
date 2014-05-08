@@ -41,4 +41,14 @@ public class MathUtils {
 	
 		return sb.reverse().toString();
 	}
+	
+	
+	public static String doubleToString(double koeff, int numbers) {
+		String str = String.valueOf(koeff);
+		int pos = str.indexOf(".");
+		pos = pos > 0 ? pos : 0;
+		int ind = pos + numbers > str.length() ? str.length() : pos + numbers;
+		String result = str.substring(0, ind);
+		return result;
+	}
 }

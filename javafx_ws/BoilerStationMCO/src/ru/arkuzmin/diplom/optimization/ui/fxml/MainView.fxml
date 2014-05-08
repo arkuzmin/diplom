@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.chart.*?>
 <?import javafx.scene.control.*?>
@@ -51,7 +52,7 @@
         </BorderPane>
       </bottom>
       <center>
-        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
+        <TabPane fx:id="mainTabPane" prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE">
           <tabs>
             <Tab text="Режимные карты котлоагрегатов">
               <content>
@@ -835,7 +836,7 @@
                                 </AnchorPane>
                               </content>
                             </Tab>
-                            <Tab text="Котел №6">
+                            <Tab disable="false" text="Котел №6">
                               <content>
                                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                   <children>
@@ -953,7 +954,7 @@
                                                           <content>
                                                             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="990.0">
                                                               <children>
-                                                                <VBox id="b1VBox" fx:id="b6apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                                                <VBox id="b1VBox" fx:id="b6apcVBox" prefHeight="1400.0" prefWidth="990.0" spacing="10.0" visible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                                                   <padding>
                                                                     <Insets fx:id="x2" />
                                                                   </padding>
@@ -1011,6 +1012,122 @@
                 <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                   <children>
                     <BorderPane prefHeight="345.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  </children>
+                </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="decisionTab" disable="true" text="Результаты оптимизации">
+              <content>
+                <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                    <Pane prefHeight="445.0" prefWidth="1000.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                      <children>
+                        <ProgressBar fx:id="b1Progress" layoutX="10.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.0" rotate="270.0" />
+                        <ProgressBar fx:id="b2Progress" layoutX="170.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.25" rotate="270.0">
+                          <stylesheets>
+                            <URL value="@../css/styles.css" />
+                          </stylesheets>
+                        </ProgressBar>
+                        <ProgressBar fx:id="b3Progress" layoutX="330.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0">
+                          <stylesheets>
+                            <URL value="@../css/styles.css" />
+                          </stylesheets>
+                        </ProgressBar>
+                        <ProgressBar fx:id="b4Progress" layoutX="490.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
+                        <ProgressBar fx:id="b5Progress" layoutX="650.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
+                        <ProgressBar fx:id="b6Progress" layoutX="810.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
+                        <Label layoutX="50.0" layoutY="344.0" text="Общий расход газа [т/час]:">
+                          <font>
+                            <Font size="14.0" fx:id="x4" />
+                          </font>
+                        </Label>
+                        <Label font="$x4" layoutX="50.0" layoutY="363.0" text="Общий расход мазута т/час]:" />
+                        <Label font="$x4" layoutX="50.0" layoutY="382.0" text="Финансовые затраты на топливо:" />
+                        <Label font="$x4" layoutX="50.0" layoutY="401.0" text="КПД группы работающих котлоагрегатов [%]:" />
+                        <Label fx:id="bGasLbl" layoutX="370.0" layoutY="344.0" text="">
+                          <font>
+                            <Font name="System Bold" size="14.0" fx:id="x5" />
+                          </font>
+                        </Label>
+                        <Label id="BMazLbl" fx:id="bMazLbl" font="$x5" layoutX="370.0" layoutY="363.0" text="" />
+                        <Label fx:id="FLbl" font="$x5" layoutX="370.0" layoutY="382.0" text="" />
+                        <Label fx:id="KPDLbl" font="$x5" layoutX="370.0" layoutY="401.0" text="" />
+                        <Pane layoutX="50.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-1" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label fx:id="b1DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label fx:id="b1FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label fx:id="b1StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Pane layoutX="210.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-2" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label id="b1DKLbl" fx:id="b2DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label id="b1FuelLbl" fx:id="b2FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label id="b1StateLbl" fx:id="b2StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Pane layoutX="370.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-3" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label id="b1DKLbl" fx:id="b3DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label id="b1FuelLbl" fx:id="b3FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label id="b1StateLbl" fx:id="b3StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Pane layoutX="530.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-4" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label id="b1DKLbl" fx:id="b4DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label id="b1FuelLbl" fx:id="b4FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label id="b1StateLbl" fx:id="b4StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Pane layoutX="690.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-5" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label id="b1DKLbl" fx:id="b5DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label id="b1FuelLbl" fx:id="b5FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label id="b1StateLbl" fx:id="b5StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Pane layoutX="850.0" layoutY="23.0" prefHeight="92.0" prefWidth="120.0">
+                          <children>
+                            <Label font="$x3" layoutX="33.0" layoutY="14.0" text="Котел К-6" />
+                            <Label layoutX="-1.0" layoutY="30.0" text="Состояние:" />
+                            <Label layoutX="-1.0" layoutY="46.0" text="Топливо:" />
+                            <Label layoutX="-2.0" layoutY="62.0" text="Нагрузка [т/час]:" />
+                            <Label id="b1DKLbl" fx:id="b6DKLbl" font="$x3" layoutX="91.0" layoutY="62.0" prefWidth="27.0" text="90" />
+                            <Label id="b1FuelLbl" fx:id="b6FuelLbl" font="$x3" layoutX="72.0" layoutY="46.0" prefWidth="48.0" text="Мазут" />
+                            <Label id="b1StateLbl" fx:id="b6StateLbl" font="$x3" layoutX="72.0" layoutY="30.0" prefWidth="41.0" text="Выкл." />
+                          </children>
+                        </Pane>
+                        <Label fx:id="b1PercLbl" font="$x5" layoutX="99.0" layoutY="221.0" text="90%" />
+                        <Label id="b1PercLbl" fx:id="b2PercLbl" font="$x5" layoutX="258.0" layoutY="221.0" text="90%" />
+                        <Label id="b1PercLbl" fx:id="b3PercLbl" font="$x5" layoutX="419.0" layoutY="221.0" text="90%" />
+                        <Label id="b1PercLbl" fx:id="b4PercLbl" font="$x5" layoutX="579.0" layoutY="221.0" text="90%" />
+                        <Label id="b1PercLbl" fx:id="b5PercLbl" font="$x5" layoutX="739.0" layoutY="221.0" text="90%" />
+                        <Label id="b1PercLbl" fx:id="b6PercLbl" font="$x5" layoutX="898.0" layoutY="221.0" text="90%" />
+                        <Label font="$x4" layoutX="530.0" layoutY="372.0" text="Общая паровая нагрузка [т/час]:" />
+                        <Label fx:id="commonDK" font="$x5" layoutX="743.0" layoutY="372.0" text="" />
+                      </children>
+                    </Pane>
                   </children>
                 </AnchorPane>
               </content>

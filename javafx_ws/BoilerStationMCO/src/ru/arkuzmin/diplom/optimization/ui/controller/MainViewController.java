@@ -3,18 +3,25 @@ package ru.arkuzmin.diplom.optimization.ui.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
+import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.mco.MultiCriteriaOptimization;
 import ru.arkuzmin.diplom.optimization.ui.BoilerPaneManager;
+import ru.arkuzmin.diplom.optimization.ui.DecisionManager;
 import ru.arkuzmin.diplom.optimization.utils.UIManager;
 
 public class MainViewController implements Initializable {
@@ -130,6 +137,91 @@ public class MainViewController implements Initializable {
 	@FXML
 	VBox b6apcVBox;
 	
+	@FXML
+	Label bGasLbl;
+	@FXML
+	Label bMazLbl;
+	@FXML
+	Label FLbl;
+	@FXML
+	Label KPDLbl;
+	
+	@FXML 
+	Label b1DKLbl;
+	@FXML
+	Label b1StateLbl;
+	@FXML
+	Label b1FuelLbl;
+	@FXML
+	Label b1PercLbl;
+	
+	@FXML 
+	Label b2DKLbl;
+	@FXML
+	Label b2StateLbl;
+	@FXML
+	Label b2FuelLbl;
+	@FXML
+	Label b2PercLbl;
+	
+	@FXML 
+	Label b3DKLbl;
+	@FXML
+	Label b3StateLbl;
+	@FXML
+	Label b3FuelLbl;
+	@FXML
+	Label b3PercLbl;
+	
+	@FXML 
+	Label b4DKLbl;
+	@FXML
+	Label b4StateLbl;
+	@FXML
+	Label b4FuelLbl;
+	@FXML
+	Label b4PercLbl;
+	
+	@FXML 
+	Label b5DKLbl;
+	@FXML
+	Label b5StateLbl;
+	@FXML
+	Label b5FuelLbl;
+	@FXML
+	Label b5PercLbl;
+	
+	@FXML 
+	Label b6DKLbl;
+	@FXML
+	Label b6StateLbl;
+	@FXML
+	Label b6FuelLbl;
+	@FXML
+	Label b6PercLbl;
+	
+	@FXML 
+	Tab decisionTab;
+	
+	@FXML 
+	ProgressBar b1Progress;
+	@FXML 
+	ProgressBar b2Progress;
+	@FXML 
+	ProgressBar b3Progress;
+	@FXML 
+	ProgressBar b4Progress;
+	@FXML 
+	ProgressBar b5Progress;
+	@FXML 
+	ProgressBar b6Progress;
+	
+	@FXML
+	Label commonDK;
+	
+	@FXML
+	TabPane mainTabPane;
+	
 	public void solve() {
 		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, 638);
 		UIManager uiManager = new UIManager(chckFullLogging.isSelected());
@@ -138,21 +230,54 @@ public class MainViewController implements Initializable {
 		
 		mco.initUIManager(uiManager);
 		mco.setPrecision(0.1, 50);
-		Thread t = new Solver(mco);
+		
+		DecisionManager dm = new DecisionManager(bGasLbl, bMazLbl, FLbl, KPDLbl, b1DKLbl, b1StateLbl, b1FuelLbl, b1PercLbl, b2DKLbl, b2StateLbl, b2FuelLbl, b2PercLbl, b3DKLbl, b3StateLbl, b3FuelLbl, b3PercLbl, b4DKLbl, b4StateLbl, b4FuelLbl, b4PercLbl, b5DKLbl, b5StateLbl, b5FuelLbl, b5PercLbl, b6DKLbl, b6StateLbl, b6FuelLbl, b6PercLbl, b1Progress, b2Progress, b3Progress, b4Progress, b5Progress, b6Progress, commonDK);
+		Thread t = new Solver(mco, dm, decisionTab, mainTabPane);
 		t.start();
 	}
 	
-	class Solver extends Thread {
+	class UIModifier extends Thread {
+		private DecisionManager manager;
+		private Tab decisionTab;
+		private Decision d;
+		private TabPane mainTabPane;
 		
-		private MultiCriteriaOptimization mco;
-		
-		public Solver (MultiCriteriaOptimization mco) {
-			this.mco = mco;
+		public UIModifier (Decision d, DecisionManager manager, Tab decisionTab, TabPane mainTabPane) {
+			this.d = d;
+			this.manager = manager;
+			this.decisionTab = decisionTab;
+			this.mainTabPane = mainTabPane;
 		}
 		
 		@Override
 		public void run() {
-			mco.solve();
+			manager.setDecision(d);
+			decisionTab.setDisable(false);
+			mainTabPane.getSelectionModel().select(decisionTab);
+		}
+	}
+	
+	class Solver extends Thread {
+		
+		private DecisionManager manager;
+		
+		private Tab decisionTab;
+		
+		private MultiCriteriaOptimization mco;
+		
+		private TabPane mainTabPane;
+		
+		public Solver (MultiCriteriaOptimization mco, DecisionManager manager, Tab decisionTab, TabPane mainTabPane) {
+			this.mco = mco;
+			this.manager = manager;
+			this.decisionTab = decisionTab;
+			this.mainTabPane = mainTabPane;
+		}
+		
+		@Override
+		public void run() {
+			Decision d = mco.solve();
+			Platform.runLater(new UIModifier(d, manager, decisionTab, mainTabPane));	
 		}
 	}
 	

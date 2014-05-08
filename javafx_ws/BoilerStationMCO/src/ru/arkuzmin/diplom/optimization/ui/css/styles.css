@@ -4,6 +4,14 @@
   -fx-border-width: 1;
 }
 
+.gas-progress {
+	-fx-accent: rgb(118,211,125); 
+}
+
+.maz-progress {
+	-fx-accent: rgb(248,128,82);
+}
+
 .bordered-pane-maz {
   -fx-background-color: rgb(254,239,233);
   -fx-border-color: black;

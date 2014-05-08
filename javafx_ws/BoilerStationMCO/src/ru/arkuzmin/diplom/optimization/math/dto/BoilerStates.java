@@ -6,10 +6,10 @@ package ru.arkuzmin.diplom.optimization.math.dto;
  *
  */
 public enum BoilerStates {
-	UNKNOWN(-1, "Не определено", "НЕОПР."),
+	UNKNOWN(-1, "Не определено", "Неопр."),
 	OFF(0, "Выключен", "0"), 
-	ON_GAS(1, "Работает на газе", "Г"),
-	ON_MAZ(2, "Работает на мазуте", "М");
+	ON_GAS(1, "Работает на газе", "Газ"),
+	ON_MAZ(2, "Работает на мазуте", "Мазут");
 	
 	private int state;
 	private String name;
