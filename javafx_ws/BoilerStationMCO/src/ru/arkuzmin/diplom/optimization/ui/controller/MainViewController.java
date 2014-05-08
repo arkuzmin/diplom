@@ -4,6 +4,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -17,12 +19,16 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
 import ru.arkuzmin.diplom.optimization.math.dto.Decision;
 import ru.arkuzmin.diplom.optimization.mco.MultiCriteriaOptimization;
 import ru.arkuzmin.diplom.optimization.ui.BoilerPaneManager;
 import ru.arkuzmin.diplom.optimization.ui.DecisionManager;
+import ru.arkuzmin.diplom.optimization.ui.DecisionSearchTab;
 import ru.arkuzmin.diplom.optimization.utils.UIManager;
+
+import com.sun.javafx.scene.control.skin.ProgressIndicatorSkin;
 
 public class MainViewController implements Initializable {
 
@@ -222,7 +228,21 @@ public class MainViewController implements Initializable {
 	@FXML
 	TabPane mainTabPane;
 	
+	@FXML
+	Tab modeTab;
+	
+	@FXML
+	Tab optTab;
+	
+	Tab dt;
+	
 	public void solve() {
+		dt = new DecisionSearchTab();
+		mainTabPane.getTabs().add(dt);
+		mainTabPane.getSelectionModel().select(dt);
+		modeTab.setDisable(true);
+		optTab.setDisable(true);
+		
 		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, 638);
 		UIManager uiManager = new UIManager(chckFullLogging.isSelected());
 		uiManager.initLogArea(logArea);
@@ -254,6 +274,9 @@ public class MainViewController implements Initializable {
 			manager.setDecision(d);
 			decisionTab.setDisable(false);
 			mainTabPane.getSelectionModel().select(decisionTab);
+			modeTab.setDisable(false);
+			optTab.setDisable(false);
+			mainTabPane.getTabs().remove(dt);
 		}
 	}
 	
@@ -261,9 +284,9 @@ public class MainViewController implements Initializable {
 		
 		private DecisionManager manager;
 		
-		private Tab decisionTab;
-		
 		private MultiCriteriaOptimization mco;
+
+		private Tab decisionTab;
 		
 		private TabPane mainTabPane;
 		
@@ -289,6 +312,20 @@ public class MainViewController implements Initializable {
 		BoilerPaneManager.addBoilerInfo(BoilerWorkMaps.getB4(), b4DKMin, b4DKMax, b4q2VBox, b4q5VBox, b4tyxVBox, b4ayxVBox, b4apcVBox);
 		BoilerPaneManager.addBoilerInfo(BoilerWorkMaps.getB5(), b5DKMin, b5DKMax, b5q2VBox, b5q5VBox, b5tyxVBox, b5ayxVBox, b5apcVBox);
 		BoilerPaneManager.addBoilerInfo(BoilerWorkMaps.getB6(), b6DKMin, b6DKMax, b6q2VBox, b6q5VBox, b6tyxVBox, b6ayxVBox, b6apcVBox);
+	
+		ProgressIndicatorSkin indicatorSkin = new ProgressIndicatorSkin(progress);
+		final Text text = (Text) indicatorSkin.lookup(".percentage");
+		progress.progressProperty().addListener(new ChangeListener<Number>() {
+		    @Override
+		    public void changed(ObservableValue<? extends Number> ov, Number t, Number newValue) {
+		        // If progress is 100% then show Text
+		        if (newValue.doubleValue() >= 1) {
+		            // This text replaces "Done"
+		            text.setText("Решение найдено!");
+		        }
+		    }
+		});
+		progress.skinProperty().set(indicatorSkin);
 	}
 
 }
