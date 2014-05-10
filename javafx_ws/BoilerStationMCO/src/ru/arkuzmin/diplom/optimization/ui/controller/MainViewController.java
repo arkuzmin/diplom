@@ -242,6 +242,10 @@ public class MainViewController implements Initializable {
 		mainTabPane.getSelectionModel().select(dt);
 		modeTab.setDisable(true);
 		optTab.setDisable(true);
+		btnSolve.setDisable(true);
+		chckFullLogging.setDisable(true);
+		progress.setProgress(0.0);
+		decisionTab.setDisable(true);
 		
 		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, 638);
 		UIManager uiManager = new UIManager(chckFullLogging.isSelected());
@@ -258,15 +262,11 @@ public class MainViewController implements Initializable {
 	
 	class UIModifier extends Thread {
 		private DecisionManager manager;
-		private Tab decisionTab;
 		private Decision d;
-		private TabPane mainTabPane;
 		
-		public UIModifier (Decision d, DecisionManager manager, Tab decisionTab, TabPane mainTabPane) {
+		public UIModifier (Decision d, DecisionManager manager) {
 			this.d = d;
 			this.manager = manager;
-			this.decisionTab = decisionTab;
-			this.mainTabPane = mainTabPane;
 		}
 		
 		@Override
@@ -276,6 +276,8 @@ public class MainViewController implements Initializable {
 			mainTabPane.getSelectionModel().select(decisionTab);
 			modeTab.setDisable(false);
 			optTab.setDisable(false);
+			btnSolve.setDisable(false);
+			chckFullLogging.setDisable(false);
 			mainTabPane.getTabs().remove(dt);
 		}
 	}
@@ -283,24 +285,17 @@ public class MainViewController implements Initializable {
 	class Solver extends Thread {
 		
 		private DecisionManager manager;
-		
 		private MultiCriteriaOptimization mco;
 
-		private Tab decisionTab;
-		
-		private TabPane mainTabPane;
-		
 		public Solver (MultiCriteriaOptimization mco, DecisionManager manager, Tab decisionTab, TabPane mainTabPane) {
 			this.mco = mco;
 			this.manager = manager;
-			this.decisionTab = decisionTab;
-			this.mainTabPane = mainTabPane;
 		}
 		
 		@Override
 		public void run() {
 			Decision d = mco.solve();
-			Platform.runLater(new UIModifier(d, manager, decisionTab, mainTabPane));	
+			Platform.runLater(new UIModifier(d, manager));	
 		}
 	}
 	
