@@ -26,6 +26,7 @@ public class App extends Application {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.show();
+            primaryStage.setTitle("Многокритериальная оптимизация режимов работы котельного отделения электростанции");
             
         } catch (Exception e) {
             logger.error("Невозможно запустить приложение", e);

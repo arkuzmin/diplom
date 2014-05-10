@@ -26,6 +26,7 @@ public class MultiCriteriaOptimization {
 	private double maz_cost;
 	private double gas_cost;
 	private double DK;
+	private double cost_mult = -1;
 	
 	private double eps = 0.1;
 	private int P = 50;
@@ -35,6 +36,10 @@ public class MultiCriteriaOptimization {
 		this.gas_cost = gas_cost;
 		this.maz_cost = maz_cost;
 		this.DK = DK;
+	}
+	
+	public void setCostMult(double cost_mult) {
+		this.cost_mult = cost_mult;
 	}
 	
 	public void initUIManager(UIManager uiManager) {
@@ -76,7 +81,12 @@ public class MultiCriteriaOptimization {
 		// Находим решение методом целевого программирования
 		logToUI("Метод целевого программирования...");
 		allDone();
-		return getTPMDecision(dSet);
+		Decision d = getTPMDecision(dSet);
+		if (cost_mult > 0) {
+			Criteria cc = d.getVector().getCr(2);
+			cc.setValue(cc.getValue() * cost_mult);
+		}
+		return d;
 	}
 	
 	private void correctIdealVector(VectorCriteria ideal, VectorCriteria current) {

@@ -1,3 +1,8 @@
+.bordered-pane {
+  -fx-border-color: black;
+  -fx-border-width: 1;
+}
+
 .bordered-pane-gas {
   -fx-background-color: rgb(236,249,237);
   -fx-border-color: black;

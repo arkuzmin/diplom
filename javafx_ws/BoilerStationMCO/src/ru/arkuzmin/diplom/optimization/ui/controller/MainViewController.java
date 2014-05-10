@@ -13,11 +13,14 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Slider;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import ru.arkuzmin.diplom.optimization.math.dto.BoilerWorkMaps;
@@ -26,12 +29,15 @@ import ru.arkuzmin.diplom.optimization.mco.MultiCriteriaOptimization;
 import ru.arkuzmin.diplom.optimization.ui.BoilerPaneManager;
 import ru.arkuzmin.diplom.optimization.ui.DecisionManager;
 import ru.arkuzmin.diplom.optimization.ui.DecisionSearchTab;
+import ru.arkuzmin.diplom.optimization.ui.RelativeImportanceManager;
 import ru.arkuzmin.diplom.optimization.utils.UIManager;
 
 import com.sun.javafx.scene.control.skin.ProgressIndicatorSkin;
 
 public class MainViewController implements Initializable {
 
+	private RelativeImportanceManager rim;
+	
 	@FXML
 	ProgressIndicator progress;
 	
@@ -236,7 +242,91 @@ public class MainViewController implements Initializable {
 	
 	Tab dt;
 	
+	@FXML
+	RadioButton optGasRadio;
+	@FXML
+	Slider optGasMazSl;
+	@FXML
+	TextField optGasMazTxt;
+	@FXML
+	Slider optGasFSl;
+	@FXML
+	TextField optGasFTxt;
+	@FXML
+	Slider optGasKPDSl;
+	@FXML
+	TextField optGasKPDTxt;
+	
+	@FXML
+	RadioButton optMazRadio;
+	@FXML
+	Slider optMazGasSl;
+	@FXML
+	TextField optMazGasTxt;
+	@FXML
+	Slider optMazFSl;
+	@FXML
+	TextField optMazFTxt;
+	@FXML
+	Slider optMazKPDSl;
+	@FXML
+	TextField optMazKPDTxt;
+	
+	@FXML
+	RadioButton optFRadio;
+	@FXML
+	Slider optFGasSl;
+	@FXML
+	TextField optFGasTxt;
+	@FXML
+	Slider optFMazSl;
+	@FXML
+	TextField optFMazTxt;
+	@FXML
+	Slider optFKPDSl;
+	@FXML
+	TextField optFKPDTxt;
+	
+	@FXML
+	RadioButton optKPDRadio;
+	@FXML
+	Slider optKPDGasSl;
+	@FXML
+	TextField optKPDGasTxt;
+	@FXML
+	Slider optKPDFSl;
+	@FXML
+	TextField optKPDFTxt;
+	@FXML
+	Slider optKPDMazSl;
+	@FXML
+	TextField optKPDMazTxt;
+	
+	@FXML
+	CheckBox optRelImpChckBox;
+	
+	@FXML 
+	TextField optDKTxt;
+	@FXML 
+	TextField optGasCostTxt;
+	@FXML 
+	TextField optMazCostTxt;
+	
+	@FXML
+	BorderPane riPane;
+	
+	@FXML
+	Pane riGasPane;
+	@FXML
+	Pane riMazPane;
+	@FXML
+	Pane riFPane;
+	@FXML
+	Pane riKPDPane;
+	
+	
 	public void solve() {
+		logArea.clear();
 		dt = new DecisionSearchTab();
 		mainTabPane.getTabs().add(dt);
 		mainTabPane.getSelectionModel().select(dt);
@@ -247,7 +337,16 @@ public class MainViewController implements Initializable {
 		progress.setProgress(0.0);
 		decisionTab.setDisable(true);
 		
-		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, 638);
+		double mult;
+		double gcost = Double.parseDouble(optGasCostTxt.getText());
+		double mcost = Double.parseDouble(optMazCostTxt.getText());
+		double dk = Double.parseDouble(optDKTxt.getText());
+		mult = mcost > gcost ? gcost : mcost;
+		
+		MultiCriteriaOptimization mco = new MultiCriteriaOptimization(rim.getRIMess(), gcost / mult, mcost / mult, dk);
+		mco.setCostMult(mult);
+		//MultiCriteriaOptimization mco = new MultiCriteriaOptimization(null, 1, 1.85, dk);
+
 		UIManager uiManager = new UIManager(chckFullLogging.isSelected());
 		uiManager.initLogArea(logArea);
 		uiManager.initProgress(progress);
@@ -299,6 +398,105 @@ public class MainViewController implements Initializable {
 		}
 	}
 	
+	public void useRelativeImportance() {
+		rim.useRelativeImportance();
+	}
+	
+	public void useGasRI() {
+		rim.useGasRI();
+	}
+	
+	public void useMazRI() {
+		rim.useMazRI();
+	}
+	
+	public void useFRI() {
+		rim.useFRI();
+	}
+	
+	public void useKPDRI() {
+		rim.useKPDRI();
+	}
+	
+	public void setGasMazRiTxt() {
+		rim.setGasMazRiTxt();
+	}
+	public void setGasMazRiSl() {
+		rim.setGasMazRiSl();
+	}
+	public void setGasFRiTxt() {
+		rim.setGasFRiTxt();
+	}
+	public void setGasFRiSl() {
+		rim.setGasFRiSl();
+	}
+	public void setGasKPDRiTxt() {
+		rim.setGasKPDRiTxt();
+	}
+	public void setGasKPDRiSl() {
+		rim.setGasKPDRiSl();
+	}
+	
+	//
+	public void setMazGasRiTxt() {
+		rim.setMazGasRiTxt();
+	}
+	public void setMazGasRiSl() {
+		rim.setMazGasRiSl();
+	}
+	public void setMazFRiTxt() {
+		rim.setMazFRiTxt();
+	}
+	public void setMazFRiSl() {
+		rim.setMazFRiSl();
+	}
+	public void setMazKPDRiTxt() {
+		rim.setMazKPDRiTxt();
+	}
+	public void setMazKPDRiSl() {
+		rim.setMazKPDRiSl();
+	}
+	
+	//
+	public void setFMazRiTxt() {
+		rim.setFMazRiTxt();
+	}
+	public void setFMazRiSl() {
+		rim.setFMazRiSl();
+	}
+	public void setFGasRiTxt() {
+		rim.setFGasRiTxt();
+	}
+	public void setFGasRiSl() {
+		rim.setFGasRiSl();
+	}
+	public void setFKPDRiTxt() {
+		rim.setFKPDRiTxt();
+	}
+	public void setFKPDRiSl() {
+		rim.setFKPDRiSl();
+	}
+	
+	//
+	public void setKPDMazRiTxt() {
+		rim.setKPDMazRiTxt();
+	}
+	public void setKPDMazRiSl() {
+		rim.setKPDMazRiSl();
+	}
+	public void setKPDFRiTxt() {
+		rim.setKPDFRiTxt();
+	}
+	public void setKPDFRiSl() {
+		rim.setKPDFRiSl();
+	}
+	public void setKPDGasRiTxt() {
+		rim.setKPDGasRiTxt();
+	}
+	public void setKPDGasRiSl() {
+		rim.setKPDGasRiSl();
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		BoilerPaneManager.addBoilerInfo(BoilerWorkMaps.getB1(), b1DKMin, b1DKMax, b1q2VBox, b1q5VBox, b1tyxVBox, b1ayxVBox, b1apcVBox);
@@ -321,6 +519,8 @@ public class MainViewController implements Initializable {
 		    }
 		});
 		progress.skinProperty().set(indicatorSkin);
+		
+		rim = new RelativeImportanceManager(optGasRadio, optGasMazSl, optGasMazTxt, optGasFSl, optGasFTxt, optGasKPDSl, optGasKPDTxt, optMazRadio, optMazGasSl, optMazGasTxt, optMazFSl, optMazFTxt, optMazKPDSl, optMazKPDTxt, optFRadio, optFGasSl, optFGasTxt, optFMazSl, optFMazTxt, optFKPDSl, optFKPDTxt, optKPDRadio, optKPDGasSl, optKPDGasTxt, optKPDFSl, optKPDFTxt, optKPDMazSl, optKPDMazTxt, optRelImpChckBox, riPane, riGasPane, riMazPane, riFPane, riKPDPane);
 	}
 
 }

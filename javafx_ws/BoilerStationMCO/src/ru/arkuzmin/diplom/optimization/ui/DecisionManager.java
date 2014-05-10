@@ -121,9 +121,12 @@ public class DecisionManager {
 		perc.setText(String.valueOf(MathUtils.toInt(b.getDK() * 100.0 / b.getMAX_DK())) + "%");
 		progress.setProgress(b.getDK() / b.getMAX_DK());
 		progress.getStylesheets().add(RegressionPane.class.getResource(Globals.CSS_STYLES).toExternalForm());
+
 		if (BoilerStates.ON_GAS.equals(b.getState())) {
+			progress.getStyleClass().remove("maz-progress");
 			progress.getStyleClass().add("gas-progress");
 		} else if (BoilerStates.ON_MAZ.equals(b.getState())) {
+			progress.getStyleClass().remove("gas-progress");
 			progress.getStyleClass().add("maz-progress");
 		}
 	}
