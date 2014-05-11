@@ -53,12 +53,12 @@
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="D:\github\diplom\javafx_ws\BoilerStationMCO">
-				<include name="src/**" />
+				<include name="test/**" />
 			</fileset>
 		</copy>
 		<copy todir="project">
 			<fileset dir="D:\github\diplom\javafx_ws\BoilerStationMCO">
-				<include name="test/**" />
+				<include name="src/**" />
 			</fileset>
 		</copy>
 		
@@ -102,7 +102,7 @@
 					<include name="*"/>
 				</fileset>
 				<filelist>
-					<file name="C:\Program Files\Java\jre7\lib\jfxrt.jar"/>
+					<file name="C:\Program Files\Java\jdk1.7.0_40\jre\lib\jfxrt.jar"/>
 				</filelist>
 			</classpath>
 		</javac>
@@ -139,8 +139,9 @@
 		</fx:resources> 
 		
 		<fx:application id="fxApplication"
-			name="ÌÊÎ"
+			name="MCO"
 			mainClass="ru.arkuzmin.diplom.optimization.ui.App"
+			toolkit="fx"
 		/>
 	
 		<mkdir dir="build/classes/META-INF" />
@@ -155,7 +156,7 @@
 			
 			<manifest>
 				<attribute name="Implementation-Vendor" value="ArKuzmin"/>
-				<attribute name="Implementation-Title" value="ÌÊÎ"/>
+				<attribute name="Implementation-Title" value="MCO"/>
 				<attribute name="Implementation-Version" value="1.0"/>
 				<attribute name="JavaFX-Feature-Proxy" value="None"/>
 			</manifest>

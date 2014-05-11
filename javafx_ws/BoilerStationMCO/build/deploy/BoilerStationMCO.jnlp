@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="BoilerStationMCO.jnlp">
+  <information>
+    <title>BoilerStationMCO</title>
+    <vendor>ArKuzmin</vendor>
+    <description>Sample JavaFX 2.0 application.</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+  </resources>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="BoilerStationMCO.jar" size="106737" download="eager" />
+    <jar href="libs/Jama-1.0.3.jar" size="35981" download="eager" />
+    <jar href="libs/jcommon-1.0.21.jar" size="323663" download="eager" />
+    <jar href="libs/jfreechart-1.0.17-swt.jar" size="79102" download="eager" />
+    <jar href="libs/jfreechart-1.0.17.jar" size="1544449" download="eager" />
+    <jar href="libs/junit-4.11.jar" size="245039" download="eager" />
+    <jar href="libs/log4j-1.2.17.jar" size="489883" download="eager" />
+  </resources>
+  <applet-desc  width="0" height="0" main-class="com.javafx.main.NoJavaFXFallback"  name="MCO" >
+    <param name="requiredFXVersion" value="2.2+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="0" height="0" main-class="ru.arkuzmin.diplom.optimization.ui.App"  name="MCO" />
+  <update check="background"/>
+</jnlp>
