@@ -104,7 +104,7 @@ public class RegressionPane extends BorderPane {
         final NumberAxis yAxis = fxs.getYAxis();
 
         yAxis.setLabel(yLbl);
-        xAxis.setLabel("Паровая нагрузка на котел [т/час]");
+        xAxis.setLabel("Паровая нагрузка на котел [тонн/час]");
         final LineChart<Number,Number> lineChart = new LineChart<Number,Number>(xAxis,yAxis);
                 
         lineChart.setAnimated(true);
