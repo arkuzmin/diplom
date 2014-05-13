@@ -5,16 +5,20 @@ import junit.framework.TestCase;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
+import ru.arkuzmin.diplom.optimization.mco.GasConsumptionTargetFunction;
+import ru.arkuzmin.diplom.optimization.mco.KPDTargetFunction;
+import ru.arkuzmin.diplom.optimization.mco.MoneyConsumptionTargetFunction;
+
 public class BoilerTest extends TestCase {
 	
 	private static final Logger logger = Logger.getLogger(BoilerTest.class);
 	
 	@Test
 	public void testBoiler() {
-	/*	BoilerStation bs = BoilerWorkMaps.getBoilerStation();
-		bs.getBoilers().get(5).initCurrentState(219, BoilerStates.OFF);
-		bs.getBoilers().get(4).initCurrentState(219, BoilerStates.OFF);
-		bs.getBoilers().get(3).initCurrentState(183, BoilerStates.ON_GAS);
+		BoilerStation bs = BoilerWorkMaps.getBoilerStation();
+		bs.getBoilers().get(5).initCurrentState(219, BoilerStates.ON_GAS);
+		bs.getBoilers().get(4).initCurrentState(219, BoilerStates.ON_GAS);
+		bs.getBoilers().get(3).initCurrentState(200, BoilerStates.ON_GAS);
 		bs.getBoilers().get(2).initCurrentState(0, BoilerStates.OFF);
 		bs.getBoilers().get(1).initCurrentState(0, BoilerStates.OFF);
 		bs.getBoilers().get(0).initCurrentState(0, BoilerStates.OFF);
@@ -28,16 +32,21 @@ public class BoilerTest extends TestCase {
 		
 		logger.debug(bs);
 		logger.debug(gas);
+		GasConsumptionTargetFunction gc = new GasConsumptionTargetFunction();
+		logger.debug(gc.getValue(bs));
+		KPDTargetFunction kc = new KPDTargetFunction();
+		logger.debug(kc.getValue(bs));
+		MoneyConsumptionTargetFunction mc = new MoneyConsumptionTargetFunction(3482, 6500);
+		logger.debug(mc.getValue(bs));
 		
-	}*/
+		/*
+		Boiler b = BoilerWorkMaps.getB6();
 		
-		Boiler b4 = BoilerWorkMaps.getB4();
-		
-		double[] values = new double[] {130, 141, 183, 198, 200};
-		b4.setState(BoilerStates.ON_GAS);
+		double[] values = new double[] {130, 140, 189, 219};
+		b.setState(BoilerStates.ON_GAS);
 		for (double d : values) {
-			b4.setDK(d);
-			logger.debug("" + d + " : " + b4.getB());
-		}
+			b.setDK(d);
+			logger.debug("" + d + " : " + b.getB());
+		}*/
 	}
 }
