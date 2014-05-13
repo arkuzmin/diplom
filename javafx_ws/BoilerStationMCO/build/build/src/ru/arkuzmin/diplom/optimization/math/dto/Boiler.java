@@ -179,9 +179,9 @@ public class Boiler {
 	}
 	private double getQhp() {
 		if (BoilerStates.ON_GAS.equals(getState())) {
-			Qhp = 8440;
+			Qhp = 8100;//8440;
 		} else if (BoilerStates.ON_MAZ.equals(getState())) {
-			Qhp = 9300;
+			Qhp = 9600;//9300;
 		}
 		return Qhp;
 	}
@@ -190,7 +190,7 @@ public class Boiler {
 		if (BoilerStates.ON_GAS.equals(getState())) {
 			Wp = 0.0;
 		} else if (BoilerStates.ON_MAZ.equals(getState())) {
-			Wp = 15;
+			Wp = 10;
 		}
 		return Wp;
 	}

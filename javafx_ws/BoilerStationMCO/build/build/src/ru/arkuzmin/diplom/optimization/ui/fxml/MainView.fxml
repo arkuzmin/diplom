@@ -204,12 +204,12 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField fx:id="b1DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=">
+                                                <Label layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=">
                                                   <font>
                                                     <Font name="System Bold" size="12.0" fx:id="x3" />
                                                   </font>
                                                 </Label>
-                                                <TextField fx:id="b1DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <TextField fx:id="b1DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -362,8 +362,8 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField id="b1DKMin" fx:id="b2DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField id="b1DKMax" fx:id="b2DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b2DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -519,8 +519,8 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField id="b1DKMin" fx:id="b3DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField id="b1DKMax" fx:id="b3DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b3DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -676,8 +676,8 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField id="b1DKMin" fx:id="b4DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField id="b1DKMax" fx:id="b4DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b4DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -833,8 +833,8 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField id="b1DKMin" fx:id="b5DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField id="b1DKMax" fx:id="b5DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b5DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -990,8 +990,8 @@
                                             <Pane prefHeight="35.0" prefWidth="990.0">
                                               <children>
                                                 <TextField id="b1DKMin" fx:id="b6DKMin" disable="true" editable="false" layoutX="255.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" text="" />
-                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка &lt;=" />
-                                                <TextField id="b1DKMax" fx:id="b6DKMax" disable="true" editable="false" layoutX="583.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
+                                                <Label font="$x3" layoutX="365.0" layoutY="5.0" text="&lt;= Допустимая паровая нагрузка (тонн/час)&lt;=" />
+                                                <TextField id="b1DKMax" fx:id="b6DKMax" disable="true" editable="false" layoutX="655.0" layoutY="2.0" opacity="1.0" prefWidth="100.0" promptText="" text="" />
                                               </children>
                                             </Pane>
                                           </center>
@@ -1049,6 +1049,11 @@
                                             <TextField fx:id="optGasMazTxt" layoutX="143.0" layoutY="35.0" onAction="#setGasMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optGasFTxt" layoutX="143.0" layoutY="85.0" onAction="#setGasFRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optGasKPDTxt" layoutX="143.0" layoutY="135.0" onAction="#setGasKPDRiTxt" prefWidth="45.0" />
+                                            <Label layoutX="14.0" layoutY="0.0" text="Относительная важность в %">
+                                              <font>
+                                                <Font name="System Italic" size="12.0" fx:id="x7" />
+                                              </font>
+                                            </Label>
                                           </children>
                                         </Pane>
                                       </children>
@@ -1070,6 +1075,7 @@
                                             <TextField fx:id="optMazGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setMazGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optMazFTxt" layoutX="143.0" layoutY="85.0" onAction="#setMazFRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optMazKPDTxt" layoutX="142.0" layoutY="135.0" onAction="#setMazKPDRiTxt" prefWidth="45.0" />
+                                            <Label font="$x7" layoutX="12.0" layoutY="0.0" text="Относительная важность в %" />
                                           </children>
                                         </Pane>
                                       </children>
@@ -1091,6 +1097,7 @@
                                             <TextField fx:id="optFGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setFGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optFMazTxt" layoutX="143.0" layoutY="85.0" onAction="#setFMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optFKPDTxt" layoutX="143.0" layoutY="135.0" onAction="#setFKPDRiTxt" prefWidth="45.0" />
+                                            <Label font="$x7" layoutX="14.0" layoutY="0.0" text="Относительная важность в %" />
                                           </children>
                                         </Pane>
                                       </children>
@@ -1112,6 +1119,7 @@
                                             <TextField fx:id="optKPDGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setKPDGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optKPDMazTxt" layoutX="143.0" layoutY="85.0" onAction="#setKPDMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optKPDFTxt" layoutX="143.0" layoutY="135.0" onAction="#setKPDFRiTxt" prefWidth="45.0" />
+                                            <Label font="$x7" layoutX="12.0" layoutY="-1.0" text="Относительная важность в %" />
                                           </children>
                                         </Pane>
                                       </children>
@@ -1135,10 +1143,10 @@
                             <Label font="$x5" layoutX="14.0" layoutY="14.0" text="Общие параметры" />
                             <Label font="$x3" layoutX="14.0" layoutY="51.0" text="Общая паровая нагрузка" />
                             <TextField id="optDKtxt" fx:id="optDKTxt" layoutX="169.0" layoutY="48.0" prefWidth="70.0" text="638" />
-                            <Label font="$x3" layoutX="247.0" layoutY="51.0" text="[т/час]" />
+                            <Label font="$x3" layoutX="247.0" layoutY="51.0" text="[тонн/час]" />
                             <Label font="$x3" layoutX="14.0" layoutY="73.0" text="Цена на газ" />
                             <TextField fx:id="optGasCostTxt" layoutX="169.0" layoutY="70.0" prefWidth="70.0" text="3500" />
-                            <Label font="$x3" layoutX="247.0" layoutY="73.0" text="[руб/м3]" />
+                            <Label font="$x3" layoutX="247.0" layoutY="73.0" text="[руб/тыс.нм3]" />
                             <Label font="$x3" layoutX="14.0" layoutY="95.0" text="Цена на мазут" />
                             <TextField fx:id="optMazCostTxt" layoutX="169.0" layoutY="92.0" prefWidth="70.0" text="6500" />
                             <Label font="$x3" layoutX="247.0" layoutY="95.0" text="[руб/т]" />
@@ -1170,9 +1178,9 @@
                         <ProgressBar fx:id="b4Progress" layoutX="490.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
                         <ProgressBar fx:id="b5Progress" layoutX="650.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
                         <ProgressBar fx:id="b6Progress" layoutX="810.0" layoutY="170.0" prefHeight="120.0" prefWidth="200.0" progress="0.75" rotate="270.0" />
-                        <Label font="$x4" layoutX="50.0" layoutY="344.0" text="Общий расход газа [т/час]:" />
-                        <Label font="$x4" layoutX="50.0" layoutY="363.0" text="Общий расход мазута т/час]:" />
-                        <Label font="$x4" layoutX="50.0" layoutY="382.0" text="Финансовые затраты на топливо:" />
+                        <Label font="$x4" layoutX="50.0" layoutY="344.0" text="Общий расход газа [тыс.нм3/час]:" />
+                        <Label font="$x4" layoutX="50.0" layoutY="363.0" text="Общий расход мазута [тонн/час]:" />
+                        <Label font="$x4" layoutX="50.0" layoutY="382.0" text="Финансовые затраты на топливо [руб/час]:" />
                         <Label font="$x4" layoutX="50.0" layoutY="401.0" text="КПД группы работающих котлоагрегатов [%]:" />
                         <Label fx:id="bGasLbl" layoutX="370.0" layoutY="344.0" text="">
                           <font>
@@ -1254,8 +1262,8 @@
                         <Label id="b1PercLbl" fx:id="b4PercLbl" font="$x6" layoutX="579.0" layoutY="221.0" text="90%" />
                         <Label id="b1PercLbl" fx:id="b5PercLbl" font="$x6" layoutX="739.0" layoutY="221.0" text="90%" />
                         <Label id="b1PercLbl" fx:id="b6PercLbl" font="$x6" layoutX="898.0" layoutY="221.0" text="90%" />
-                        <Label font="$x4" layoutX="530.0" layoutY="372.0" text="Общая паровая нагрузка [т/час]:" />
-                        <Label fx:id="commonDK" font="$x6" layoutX="743.0" layoutY="372.0" text="" />
+                        <Label font="$x4" layoutX="530.0" layoutY="372.0" text="Общая паровая нагрузка [тонн/час]:" />
+                        <Label fx:id="commonDK" font="$x6" layoutX="770.0" layoutY="372.0" text="" />
                       </children>
                     </Pane>
                   </children>
