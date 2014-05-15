@@ -20,7 +20,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-        	primaryStage.initStyle(StageStyle.DECORATED);
+        	primaryStage.initStyle(StageStyle.UTILITY);
             AnchorPane page = (AnchorPane) FXMLLoader.load(App.class.getResource("/ru/arkuzmin/diplom/optimization/ui/fxml/MainView.fxml"));
             Scene scene = new Scene(page, 1000, 700);
             primaryStage.setScene(scene);

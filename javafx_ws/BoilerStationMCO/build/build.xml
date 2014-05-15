@@ -53,12 +53,12 @@
 		<mkdir dir="project" />
 		<copy todir="project">
 			<fileset dir="D:\github\diplom\javafx_ws\BoilerStationMCO">
-				<include name="src/**" />
+				<include name="test/**" />
 			</fileset>
 		</copy>
 		<copy todir="project">
 			<fileset dir="D:\github\diplom\javafx_ws\BoilerStationMCO">
-				<include name="test/**" />
+				<include name="src/**" />
 			</fileset>
 		</copy>
 		
