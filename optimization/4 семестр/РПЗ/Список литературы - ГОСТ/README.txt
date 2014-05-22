@@ -1,0 +1,1 @@
+Положить в C:\Program Files\Microsoft Office\Office14\Bibliography\Style вместо оригинального.
