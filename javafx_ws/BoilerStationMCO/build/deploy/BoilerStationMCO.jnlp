@@ -11,7 +11,7 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="BoilerStationMCO.jar" size="107071" download="eager" />
+    <jar href="BoilerStationMCO.jar" size="107066" download="eager" />
     <jar href="libs/Jama-1.0.3.jar" size="35981" download="eager" />
     <jar href="libs/jcommon-1.0.21.jar" size="323663" download="eager" />
     <jar href="libs/jfreechart-1.0.17-swt.jar" size="79102" download="eager" />

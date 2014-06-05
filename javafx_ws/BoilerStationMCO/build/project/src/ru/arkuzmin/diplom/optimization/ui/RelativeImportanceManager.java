@@ -312,30 +312,42 @@ public class RelativeImportanceManager {
 		List<RelativeImportance> koeffs = new LinkedList<RelativeImportance>();
 		
 		if (optGasRadio.isSelected()) {
-			RelativeImportance ri1 = new RelativeImportance(gmri / 100, 0, 1);
-			RelativeImportance ri2 = new RelativeImportance(gfri / 100, 0, 2);
-			RelativeImportance ri3 = new RelativeImportance(gkpdri / 100, 0, 3);
+			//RelativeImportance ri1 = new RelativeImportance(gmri / 100, 0, 1);
+			//RelativeImportance ri2 = new RelativeImportance(gfri / 100, 0, 2);
+			//RelativeImportance ri3 = new RelativeImportance(gkpdri / 100, 0, 3);
+			RelativeImportance ri1 = new RelativeImportance(gmri, 0, 1);
+			RelativeImportance ri2 = new RelativeImportance(gfri, 0, 2);
+			RelativeImportance ri3 = new RelativeImportance(gkpdri, 0, 3);
 			koeffs.add(ri1);
 			koeffs.add(ri2);
 			koeffs.add(ri3);
 		} else if (optMazRadio.isSelected()) {
-			RelativeImportance ri1 = new RelativeImportance(mgri / 100, 1, 0);
-			RelativeImportance ri2 = new RelativeImportance(mfri / 100, 1, 2);
-			RelativeImportance ri3 = new RelativeImportance(mkpdri / 100, 1, 3);
+			//RelativeImportance ri1 = new RelativeImportance(mgri / 100, 1, 0);
+			//RelativeImportance ri2 = new RelativeImportance(mfri / 100, 1, 2);
+			//RelativeImportance ri3 = new RelativeImportance(mkpdri / 100, 1, 3);
+			RelativeImportance ri1 = new RelativeImportance(mgri, 1, 0);
+			RelativeImportance ri2 = new RelativeImportance(mfri, 1, 2);
+			RelativeImportance ri3 = new RelativeImportance(mkpdri, 1, 3);
 			koeffs.add(ri1);
 			koeffs.add(ri2);
 			koeffs.add(ri3);
 		} else if (optFRadio.isSelected()) {
-			RelativeImportance ri1 = new RelativeImportance(fgri / 100, 2, 0);
-			RelativeImportance ri2 = new RelativeImportance(fmri / 100, 2, 1);
-			RelativeImportance ri3 = new RelativeImportance(fkpdri / 100, 2, 3);
+			//RelativeImportance ri1 = new RelativeImportance(fgri / 100, 2, 0);
+			//RelativeImportance ri2 = new RelativeImportance(fmri / 100, 2, 1);
+			//RelativeImportance ri3 = new RelativeImportance(fkpdri / 100, 2, 3);
+			RelativeImportance ri1 = new RelativeImportance(fgri, 2, 0);
+			RelativeImportance ri2 = new RelativeImportance(fmri, 2, 1);
+			RelativeImportance ri3 = new RelativeImportance(fkpdri, 2, 3);
 			koeffs.add(ri1);
 			koeffs.add(ri2);
 			koeffs.add(ri3);
 		} else if (optKPDRadio.isSelected()) {
-			RelativeImportance ri1 = new RelativeImportance(kpdgri / 100, 3, 0);
-			RelativeImportance ri2 = new RelativeImportance(kpdmri / 100, 3, 1);
-			RelativeImportance ri3 = new RelativeImportance(kpdfri / 100, 3, 2);
+			//RelativeImportance ri1 = new RelativeImportance(kpdgri / 100, 3, 0);
+			//RelativeImportance ri2 = new RelativeImportance(kpdmri / 100, 3, 1);
+			//RelativeImportance ri3 = new RelativeImportance(kpdfri / 100, 3, 2);
+			RelativeImportance ri1 = new RelativeImportance(kpdgri, 3, 0);
+			RelativeImportance ri2 = new RelativeImportance(kpdmri, 3, 1);
+			RelativeImportance ri3 = new RelativeImportance(kpdfri, 3, 2);
 			koeffs.add(ri1);
 			koeffs.add(ri2);
 			koeffs.add(ri3);

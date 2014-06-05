@@ -28,7 +28,7 @@
                   <top>
                     <BorderPane prefHeight="35.0" prefWidth="200.0">
                       <center>
-                        <Button fx:id="btnSolve" mnemonicParsing="false" onAction="#solve" prefWidth="100.0" text="Решить" />
+                        <Button fx:id="btnSolve" mnemonicParsing="false" onAction="#solve" prefWidth="183.0" text="Найти оптимальное решение" />
                       </center>
                     </BorderPane>
                   </top>
@@ -1040,16 +1040,16 @@
                                         </RadioButton>
                                         <Pane fx:id="riGasPane" layoutX="0.0" layoutY="36.0" prefHeight="174.0" prefWidth="200.0">
                                           <children>
-                                            <Slider fx:id="optGasMazSl" blockIncrement="10.0" layoutX="12.0" layoutY="39.0" majorTickUnit="25.0" max="100.0" minorTickCount="5" onMouseReleased="#setGasMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" snapToTicks="false" />
-                                            <Slider fx:id="optGasFSl" layoutX="13.0" layoutY="89.0" minorTickCount="5" onMouseReleased="#setGasFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optGasKPDSl" layoutX="13.0" layoutY="139.0" minorTickCount="5" onMouseReleased="#setGasKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optGasMazSl" blockIncrement="0.1" layoutX="12.0" layoutY="39.0" majorTickUnit="25.0" max="1.0" minorTickCount="5" onMouseReleased="#setGasMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" snapToTicks="false" />
+                                            <Slider fx:id="optGasFSl" blockIncrement="0.1" layoutX="13.0" layoutY="89.0" max="1.0" minorTickCount="5" onMouseReleased="#setGasFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optGasKPDSl" blockIncrement="0.1" layoutX="13.0" layoutY="139.0" max="1.0" minorTickCount="5" onMouseReleased="#setGasKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
                                             <Label font="$x3" layoutX="13.0" layoutY="24.0" text="Расход мазута" />
                                             <Label font="$x3" layoutX="12.0" layoutY="73.0" text="Финансовые затраты" />
                                             <Label font="$x3" layoutX="13.0" layoutY="123.0" text="КПД очереди" />
                                             <TextField fx:id="optGasMazTxt" layoutX="143.0" layoutY="35.0" onAction="#setGasMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optGasFTxt" layoutX="143.0" layoutY="85.0" onAction="#setGasFRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optGasKPDTxt" layoutX="143.0" layoutY="135.0" onAction="#setGasKPDRiTxt" prefWidth="45.0" />
-                                            <Label layoutX="14.0" layoutY="0.0" text="Относительная важность в %">
+                                            <Label layoutX="14.0" layoutY="0.0" text="Относительная важность">
                                               <font>
                                                 <Font name="System Italic" size="12.0" fx:id="x7" />
                                               </font>
@@ -1066,16 +1066,16 @@
                                         <RadioButton fx:id="optMazRadio" font="$x4" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#useMazRI" text="Расход мазута" />
                                         <Pane fx:id="riMazPane" disable="false" layoutX="0.0" layoutY="35.0" prefHeight="175.0" prefWidth="200.0">
                                           <children>
-                                            <Slider fx:id="optMazGasSl" layoutX="13.0" layoutY="39.0" minorTickCount="5" onMouseReleased="#setMazGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optMazFSl" layoutX="13.0" layoutY="89.0" minorTickCount="5" onMouseReleased="#setMazFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optMazKPDSl" layoutX="12.0" layoutY="139.0" minorTickCount="5" onMouseReleased="#setMazKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optMazGasSl" blockIncrement="0.1" layoutX="13.0" layoutY="39.0" max="1.0" minorTickCount="5" onMouseReleased="#setMazGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optMazFSl" blockIncrement="0.1" layoutX="13.0" layoutY="89.0" max="1.0" minorTickCount="5" onMouseReleased="#setMazFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optMazKPDSl" blockIncrement="0.1" layoutX="12.0" layoutY="139.0" max="1.0" minorTickCount="5" onMouseReleased="#setMazKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
                                             <Label font="$x3" layoutX="13.0" layoutY="23.0" text="Расход газа" />
                                             <Label font="$x3" layoutX="12.0" layoutY="73.0" text="Финансовые затраты" />
                                             <Label font="$x3" layoutX="12.0" layoutY="123.0" text="КПД очереди" />
                                             <TextField fx:id="optMazGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setMazGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optMazFTxt" layoutX="143.0" layoutY="85.0" onAction="#setMazFRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optMazKPDTxt" layoutX="142.0" layoutY="135.0" onAction="#setMazKPDRiTxt" prefWidth="45.0" />
-                                            <Label font="$x7" layoutX="12.0" layoutY="0.0" text="Относительная важность в %" />
+                                            <Label font="$x7" layoutX="12.0" layoutY="0.0" text="Относительная важность" />
                                           </children>
                                         </Pane>
                                       </children>
@@ -1088,16 +1088,16 @@
                                         <RadioButton fx:id="optFRadio" font="$x4" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#useFRI" text="Финансовые затраты" />
                                         <Pane fx:id="riFPane" disable="false" layoutX="0.0" layoutY="35.0" prefHeight="175.0" prefWidth="200.0">
                                           <children>
-                                            <Slider fx:id="optFGasSl" layoutX="13.0" layoutY="39.0" minorTickCount="5" onMouseReleased="#setFGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optFMazSl" layoutX="13.0" layoutY="89.0" minorTickCount="5" onMouseReleased="#setFMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optFKPDSl" layoutX="13.0" layoutY="139.0" minorTickCount="5" onMouseReleased="#setFKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optFGasSl" blockIncrement="0.1" layoutX="13.0" layoutY="39.0" max="1.0" minorTickCount="5" onMouseReleased="#setFGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optFMazSl" blockIncrement="0.1" layoutX="13.0" layoutY="89.0" max="1.0" minorTickCount="5" onMouseReleased="#setFMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optFKPDSl" blockIncrement="0.1" layoutX="13.0" layoutY="139.0" max="1.0" minorTickCount="5" onMouseReleased="#setFKPDRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
                                             <Label font="$x3" layoutX="13.0" layoutY="23.0" text="Расход газа" />
                                             <Label font="$x3" layoutX="12.0" layoutY="73.0" text="Расход мазута" />
                                             <Label font="$x3" layoutX="13.0" layoutY="123.0" text="КПД очереди" />
                                             <TextField fx:id="optFGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setFGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optFMazTxt" layoutX="143.0" layoutY="85.0" onAction="#setFMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optFKPDTxt" layoutX="143.0" layoutY="135.0" onAction="#setFKPDRiTxt" prefWidth="45.0" />
-                                            <Label font="$x7" layoutX="14.0" layoutY="0.0" text="Относительная важность в %" />
+                                            <Label font="$x7" layoutX="14.0" layoutY="0.0" text="Относительная важность" />
                                           </children>
                                         </Pane>
                                       </children>
@@ -1110,16 +1110,16 @@
                                         <RadioButton fx:id="optKPDRadio" font="$x4" layoutX="15.0" layoutY="14.0" mnemonicParsing="false" onAction="#useKPDRI" text="КПД очереди" />
                                         <Pane fx:id="riKPDPane" disable="false" layoutX="0.0" layoutY="35.0" prefHeight="175.0" prefWidth="200.0">
                                           <children>
-                                            <Slider fx:id="optKPDGasSl" layoutX="13.0" layoutY="39.0" minorTickCount="5" onMouseReleased="#setKPDGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optKPDMazSl" layoutX="13.0" layoutY="89.0" minorTickCount="5" onMouseReleased="#setKPDMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
-                                            <Slider fx:id="optKPDFSl" layoutX="13.0" layoutY="139.0" minorTickCount="5" onMouseReleased="#setKPDFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optKPDGasSl" blockIncrement="0.1" layoutX="13.0" layoutY="39.0" max="1.0" minorTickCount="5" onMouseReleased="#setKPDGasRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optKPDMazSl" blockIncrement="0.1" layoutX="13.0" layoutY="89.0" max="1.0" minorTickCount="5" onMouseReleased="#setKPDMazRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
+                                            <Slider fx:id="optKPDFSl" blockIncrement="0.1" layoutX="13.0" layoutY="139.0" max="1.0" minorTickCount="5" onMouseReleased="#setKPDFRiSl" prefWidth="130.0" showTickLabels="true" showTickMarks="true" />
                                             <Label font="$x3" layoutX="13.0" layoutY="23.0" text="Расход газа" />
                                             <Label font="$x3" layoutX="12.0" layoutY="73.0" text="Расход мазута" />
                                             <Label font="$x3" layoutX="13.0" layoutY="123.0" text="Финансовые затраты" />
                                             <TextField fx:id="optKPDGasTxt" layoutX="143.0" layoutY="35.0" onAction="#setKPDGasRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optKPDMazTxt" layoutX="143.0" layoutY="85.0" onAction="#setKPDMazRiTxt" prefWidth="45.0" />
                                             <TextField fx:id="optKPDFTxt" layoutX="143.0" layoutY="135.0" onAction="#setKPDFRiTxt" prefWidth="45.0" />
-                                            <Label font="$x7" layoutX="12.0" layoutY="-1.0" text="Относительная важность в %" />
+                                            <Label font="$x7" layoutX="12.0" layoutY="-1.0" text="Относительная важность" />
                                           </children>
                                         </Pane>
                                       </children>
